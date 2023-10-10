@@ -17,10 +17,10 @@ public class GameManager : Singleton<GameManager>
     [Header("References")]
     [SerializeField] private Transform startPoint;
 
-    [Header("Animation")]
+    /*[Header("Animation")]
     [SerializeField] private float duration = .2f;
     [SerializeField] private float delay = .05f;
-    [SerializeField] private Ease ease = Ease.OutBack;
+    [SerializeField] private Ease ease = Ease.OutBack;*/
 
     private GameObject _currentPlayer;
 
@@ -38,6 +38,6 @@ public class GameManager : Singleton<GameManager>
     {
         _currentPlayer = Instantiate(playerPrefab, charactersParent);
         _currentPlayer.transform.position = startPoint.transform.position;
-        _currentPlayer.transform.DOScale(0, duration).SetEase(ease).From().SetDelay(delay);
+        //_currentPlayer.transform.DOScale(0, duration).SetEase(ease).From().SetDelay(delay);
     }
 }
