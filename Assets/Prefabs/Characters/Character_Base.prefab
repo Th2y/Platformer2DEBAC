@@ -147,5 +147,6 @@ MonoBehaviour:
   playerRB: {fileID: 2810697887740768577}
   friction: {x: 0.1, y: 0}
   speedX: 10
+  speedRun: 15
   forceJump: 30
   settingsData: {fileID: 11400000, guid: 76d6b65208f9f1a4293fe04615b771f7, type: 2}
