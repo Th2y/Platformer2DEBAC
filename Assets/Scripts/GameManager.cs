@@ -1,3 +1,4 @@
+using Cinemachine;
 using DG.Tweening;
 using Ebac.Core.Singletons;
 using System.Collections.Generic;
@@ -15,12 +16,13 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private List<GameObject> enemies;
 
     [Header("References")]
+    [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private Transform startPoint;
 
-    [Header("Animation")]
+    /*[Header("Animation")]
     [SerializeField] private float duration = .2f;
     [SerializeField] private float delay = .05f;
-    [SerializeField] private Ease ease = Ease.OutBack;
+    [SerializeField] private Ease ease = Ease.OutBack;*/
 
     private GameObject _currentPlayer;
 
@@ -32,12 +34,15 @@ public class GameManager : Singleton<GameManager>
     public void Init()
     {
         SpawnPlayer();
+
+        virtualCamera.Follow = _currentPlayer.transform;
+        virtualCamera.LookAt = _currentPlayer.transform;
     }
 
     private void SpawnPlayer()
     {
         _currentPlayer = Instantiate(playerPrefab, charactersParent);
         _currentPlayer.transform.position = startPoint.transform.position;
-        _currentPlayer.transform.DOScale(0, duration).SetEase(ease).From().SetDelay(delay);
+        //_currentPlayer.transform.DOScale(0, duration).SetEase(ease).From().SetDelay(delay);
     }
 }
