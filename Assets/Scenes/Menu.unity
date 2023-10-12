@@ -1445,7 +1445,7 @@ MonoBehaviour:
     m_Options:
     - m_Text: Space
       m_Image: {fileID: 0}
-    - m_Text: Up Arrow
+    - m_Text: UpArrow
       m_Image: {fileID: 0}
     - m_Text: W
       m_Image: {fileID: 0}
@@ -1594,7 +1594,7 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Left Arrow
+    - m_Text: LeftArrow
       m_Image: {fileID: 0}
     - m_Text: A
       m_Image: {fileID: 0}
@@ -2034,7 +2034,7 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Right Arrow
+    - m_Text: RightArrow
       m_Image: {fileID: 0}
     - m_Text: D
       m_Image: {fileID: 0}
@@ -2183,9 +2183,9 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Left Control
+    - m_Text: LeftControl
       m_Image: {fileID: 0}
-    - m_Text: Right Control
+    - m_Text: RightControl
       m_Image: {fileID: 0}
     - m_Text: Z
       m_Image: {fileID: 0}

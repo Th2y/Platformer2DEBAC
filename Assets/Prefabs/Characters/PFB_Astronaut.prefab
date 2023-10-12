@@ -880,8 +880,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8007466312498025151}
   - component: {fileID: 6413013834153556191}
+  - component: {fileID: 9158802479292171147}
   - component: {fileID: 2748754057252140593}
   - component: {fileID: 5852353421737887147}
+  - component: {fileID: -5672711146982835975}
   m_Layer: 0
   m_Name: PFB_Astronaut
   m_TagString: Untagged
@@ -923,6 +925,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &9158802479292171147
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8835229685202505509}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!210 &2748754057252140593
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -946,7 +969,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11019bae7a8c16447b823de74cfd2a9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerRB: {fileID: 9158802479292171147}
+  friction: {x: 0.5, y: 0}
+  speedX: 10
+  speedRun: 15
+  forceJump: 30
+  jumpScaleY: 1.5
+  jumpScaleX: 0.7
+  dropScaleY: 0.9
+  dropScaleX: 1.5
+  animationDuration: 0.3
+  ease: 27
   settingsData: {fileID: 11400000, guid: 76d6b65208f9f1a4293fe04615b771f7, type: 2}
+--- !u!114 &-5672711146982835975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8835229685202505509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ccb8036c606834e97091425ef6ef28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startLife: 3
+  destroyOnKill: 1
+  delayToKill: 1
 --- !u!1001 &2987335437580250577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1380,13 +1429,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: -5182012352979194097, guid: 8f0a112dd4756bf4fb5e36b6a29ebf4d, type: 3}
---- !u!4 &2616809535132260505 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 947413611075204424, guid: 8f0a112dd4756bf4fb5e36b6a29ebf4d, type: 3}
-  m_PrefabInstance: {fileID: 2987335437580250577}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9047210231107343807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6123488143514990702, guid: 8f0a112dd4756bf4fb5e36b6a29ebf4d, type: 3}
+  m_PrefabInstance: {fileID: 2987335437580250577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2616809535132260505 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 947413611075204424, guid: 8f0a112dd4756bf4fb5e36b6a29ebf4d, type: 3}
   m_PrefabInstance: {fileID: 2987335437580250577}
   m_PrefabAsset: {fileID: 0}
