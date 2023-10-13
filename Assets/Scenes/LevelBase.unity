@@ -1712,10 +1712,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform
       objectReference: {fileID: 0}
-    - target: {fileID: 2440952117492446100, guid: fd6252e20074b6f40b3d2a7785b1ab6d, type: 3}
-      propertyPath: m_TagString
-      value: Floor
-      objectReference: {fileID: 0}
     - target: {fileID: 2440952117492446107, guid: fd6252e20074b6f40b3d2a7785b1ab6d, type: 3}
       propertyPath: m_RootOrder
       value: 0

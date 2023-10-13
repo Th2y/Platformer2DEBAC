@@ -28,15 +28,11 @@ public class Player : MonoBehaviour
     private KeyCode jumpCode;
     private KeyCode runCode;
 
-    private float speedY;
     private float currentSpeedX = 0;
     private bool isJumping = false;
 
     private void Awake()
     {
-        //Remover depois (quando implementar o pulo)
-        speedY = playerRB.velocity.y;
-
         leftCode = settingsData.leftCode;
         rigthCode = settingsData.rigthCode;
         jumpCode = settingsData.jumpCode;
@@ -51,7 +47,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Floor") && isJumping)
+        if (isJumping && collision.gameObject.CompareTag("Floor"))
         {
             isJumping = false;
             StopScale();
@@ -65,11 +61,11 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(rigthCode))
         {
-            playerRB.velocity = new Vector2(currentSpeedX, speedY);
+            playerRB.velocity = new Vector2(currentSpeedX, playerRB.velocity.y);
         }
         else if (Input.GetKey(leftCode))
         {
-            playerRB.velocity = new Vector2(-currentSpeedX, speedY);
+            playerRB.velocity = new Vector2(-currentSpeedX, playerRB.velocity.y);
         }
         else
         {
@@ -86,13 +82,18 @@ public class Player : MonoBehaviour
 
     private void HandleJump()
     {
-        if (Input.GetKeyDown(jumpCode) && !isJumping)
+        if (!isJumping && Input.GetKeyDown(jumpCode))
         {
-            isJumping = true;
+            Invoke(nameof(SetIsJumping), .2f);
             playerRB.velocity = Vector2.up * forceJump;
             StopScale();
             StartJumpScale();
         }
+    }
+
+    private void SetIsJumping()
+    {
+        isJumping = true;
     }
 
     private void StopScale()
