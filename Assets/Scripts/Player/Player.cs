@@ -12,13 +12,17 @@ public class Player : MonoBehaviour
     [SerializeField] private float speedRun;
     [SerializeField] private float forceJump;
 
-    [Header("Animation Setup")]
-    [SerializeField] private float jumpScaleY = 1.5f;
-    [SerializeField] private float jumpScaleX = .7f;
-    [SerializeField] private float dropScaleY = .9f;
-    [SerializeField] private float dropScaleX = 1.5f;
-    [SerializeField] private float animationDuration = .3f;
-    [SerializeField] private Ease ease = Ease.OutBack;
+    [Header("Animation Player")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private string fallBoolAnim;
+    [SerializeField] private string jumpBoolAnim;
+    [SerializeField] private string runBoolAnim;
+    [SerializeField] private string walkBoolAnim;
+    [SerializeField] private float playerSwipDuration = .1f;
+
+    [Header("Floor")]
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float maxRayLength = 1;
 
     [Header("Scripts References")]
     [SerializeField] private SettingsData settingsData;
@@ -45,30 +49,49 @@ public class Player : MonoBehaviour
         HandleJump();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (isJumping && collision.gameObject.CompareTag("Floor"))
         {
             isJumping = false;
-            StopScale();
-            StartDropScale();
+            animator.SetBool(jumpBoolAnim, false);
+            animator.SetBool(fallBoolAnim, false);
         }
     }
 
+
     private void Movement()
     {
-        currentSpeedX = Input.GetKey(runCode) ? speedRun : speedX;
+        bool isRunning = Input.GetKey(runCode);
+        currentSpeedX = isRunning ? speedRun : speedX;
 
         if (Input.GetKey(rigthCode))
         {
+            animator.SetBool(walkBoolAnim, true);
+            animator.SetBool(runBoolAnim, isRunning);
+
+            if(playerRB.transform.localScale.x != 1)
+            {
+                playerRB.transform.DOScaleX(1, playerSwipDuration);
+            }
             playerRB.velocity = new Vector2(currentSpeedX, playerRB.velocity.y);
         }
         else if (Input.GetKey(leftCode))
         {
+            animator.SetBool(walkBoolAnim, true);
+            animator.SetBool(runBoolAnim, isRunning);
+
+            if (playerRB.transform.localScale.x != -1)
+            {
+                playerRB.transform.DOScaleX(-1, playerSwipDuration);
+            }
             playerRB.velocity = new Vector2(-currentSpeedX, playerRB.velocity.y);
         }
         else
         {
+            animator.SetBool(walkBoolAnim, false);
+            animator.SetBool(runBoolAnim, false);
+
             if (playerRB.velocity.x > 0)
             {
                 playerRB.velocity -= friction;
@@ -84,33 +107,30 @@ public class Player : MonoBehaviour
     {
         if (!isJumping && Input.GetKeyDown(jumpCode))
         {
-            Invoke(nameof(SetIsJumping), .2f);
+            isJumping = true;
+            animator.SetBool(jumpBoolAnim, true);
             playerRB.velocity = Vector2.up * forceJump;
-            StopScale();
-            StartJumpScale();
         }
-    }
+        else if (playerRB.velocity.y <= -28)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(
+                new Vector3(transform.position.x, transform.position.y - .5f, transform.position.z), 
+                Vector3.down, maxRayLength, groundLayer.value);
 
-    private void SetIsJumping()
-    {
-        isJumping = true;
-    }
+            if (hit.collider != null && hit.collider.CompareTag("Floor"))
+            {
+                animator.SetBool(fallBoolAnim, true);
+                animator.SetBool(jumpBoolAnim, false);
+            }
+        }
 
-    private void StopScale()
-    {
-        playerRB.transform.localScale = Vector2.one;
-        DOTween.Kill(playerRB.transform);
-    }
-
-    private void StartJumpScale()
-    {
-        playerRB.transform.DOScaleY(jumpScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
-        playerRB.transform.DOScaleX(jumpScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
-    }
-
-    private void StartDropScale()
-    {
-        playerRB.transform.DOScaleY(dropScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
-        playerRB.transform.DOScaleX(dropScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+        if (playerRB.velocity.y <= -28)
+        {
+            animator.SetBool(fallBoolAnim, true);
+        }
+        else if(playerRB.velocity.y < Vector2.up.y * forceJump)
+        {
+            animator.SetBool(jumpBoolAnim, false);
+        }
     }
 }
