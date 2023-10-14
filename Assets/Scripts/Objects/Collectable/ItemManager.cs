@@ -1,27 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+using Ebac.Core.Singletons;
 using TMPro;
 using UnityEngine;
 
-public class ItemManager : MonoBehaviour
+public class ItemManager : Singleton<ItemManager>
 {
     [SerializeField] private TextMeshProUGUI coinsText;
 
     private int coins;
-
-    public static ItemManager Instance;
-
-    private void Awake()
-    {
-        if(Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     private void Start()
     {
