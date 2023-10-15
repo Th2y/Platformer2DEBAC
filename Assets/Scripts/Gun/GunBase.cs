@@ -22,6 +22,8 @@ public class GunBase : Singleton<GunBase>
 
     private void Start()
     {
+        UIGameManager.Instance.UpdateProjectiles(maxOfProjectiles.ToString());
+
         projectilePrefab.gameObject.SetActive(false);
 
         Transform projectilesParent = GameManager.Instance.projectilesParent;
@@ -74,6 +76,8 @@ public class GunBase : Singleton<GunBase>
                 }
             }
             _actualNumberOfProjectiles++;
+
+            UIGameManager.Instance.UpdateProjectiles((maxOfProjectiles - _actualNumberOfProjectiles).ToString());
         }
     }
 
