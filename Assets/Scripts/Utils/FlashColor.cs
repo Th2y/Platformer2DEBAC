@@ -4,33 +4,37 @@ using UnityEngine;
 
 public class FlashColor : MonoBehaviour
 {
-    [SerializeField] private List<SpriteRenderer> renderers;
-    [SerializeField] private Color flashColor;
-    [SerializeField] private float duration = .3f;
+    [Header("Damage")]
+    [SerializeField] private List<SpriteRenderer> damageRenderers;
+    [SerializeField] private Color damageColor;
+    [SerializeField] private float damageDuration = .2f;
 
-    private Tween _currentTween;
+    private Tween _damageCurrentTween;
 
     private void OnValidate()
     {
-        renderers = new List<SpriteRenderer>();
-
-        foreach (var renderer in transform.GetComponentsInChildren<SpriteRenderer>())
+        if(damageRenderers == null || damageRenderers.Count == 0)
         {
-            renderers.Add(renderer);
+            damageRenderers = new List<SpriteRenderer>();
+
+            foreach (var renderer in transform.GetComponentsInChildren<SpriteRenderer>())
+            {
+                damageRenderers.Add(renderer);
+            }
         }
     }
 
-    public void Flash()
+    public void DamageFlash()
     {
-        if(_currentTween != null)
+        if(_damageCurrentTween != null)
         {
-            _currentTween.Kill();
-            renderers.ForEach(i => i.color = Color.white);
+            _damageCurrentTween.Kill();
+            damageRenderers.ForEach(i => i.color = Color.white);
         }
 
-        foreach (var renderer in renderers)
+        foreach (var renderer in damageRenderers)
         {
-            renderer.DOColor(flashColor, duration).SetLoops(2, LoopType.Yoyo);
+            renderer.DOColor(damageColor, damageDuration).SetLoops(2, LoopType.Yoyo);
         }
     }
 }

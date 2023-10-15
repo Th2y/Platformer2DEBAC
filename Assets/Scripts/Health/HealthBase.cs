@@ -39,7 +39,7 @@ public class HealthBase : MonoBehaviour
     {
         if (_flashColor == null) return;
 
-        _flashColor.Flash();
+        _flashColor.DamageFlash();
     }
 
     protected void Kill()
