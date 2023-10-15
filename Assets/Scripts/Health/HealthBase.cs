@@ -9,35 +9,40 @@ public class HealthBase : MonoBehaviour
     [SerializeField] protected bool destroyOnKill = false;
     [SerializeField] protected float delayToKill = 1f;
 
-    private int _currentLife;
+    [SerializeField] private FlashColor _flashColor;
+
+    protected int currentLife;
+
     private bool _isDead = false;
 
     private void Awake()
     {
+        if(_flashColor == null) _flashColor = GetComponent<FlashColor>();
+
         Init();
     }
 
-    private void Init()
+    protected virtual void Init()
     {
         _isDead = false;
-        _currentLife = startLife;
-        UIGameManager.Instance.UpdateLife(_currentLife.ToString());
+        currentLife = startLife;
     }
 
-    public void Damage(int damage)
+    public virtual void Damage(int damage)
     {
         if (_isDead) return;
 
-        _currentLife -= damage;
-        UIGameManager.Instance.UpdateLife(_currentLife.ToString());
-
-        if (_currentLife <= 0 )
-        {
-            Kill();
-        }
+        currentLife -= damage;
     }
 
-    private void Kill()
+    protected virtual void Flash()
+    {
+        if (_flashColor == null) return;
+
+        _flashColor.Flash();
+    }
+
+    protected void Kill()
     {
         _isDead = true;
 
@@ -53,11 +58,11 @@ public class HealthBase : MonoBehaviour
 
     public int GetCurrentLife()
     {
-        return _currentLife;
+        return currentLife;
     }
 
     public void SetCurrentLife(int amount)
     {
-        _currentLife += amount;
+        currentLife += amount;
     }
 }

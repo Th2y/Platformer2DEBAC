@@ -69,6 +69,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   timeToDamage: 15
+  animator: {fileID: 8787600642032526948}
+  attackTrigger: Attack
+  deathTrigger: Death
 --- !u!70 &6824631201977923961
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -233,5 +236,10 @@ PrefabInstance:
 --- !u!4 &8825188657657141385 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2944973745361044811, guid: e0d57717ad485d748986ddb9eba2beb8, type: 3}
+  m_PrefabInstance: {fileID: 5956002085478407618}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8787600642032526948 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3122169294817524646, guid: e0d57717ad485d748986ddb9eba2beb8, type: 3}
   m_PrefabInstance: {fileID: 5956002085478407618}
   m_PrefabAsset: {fileID: 0}

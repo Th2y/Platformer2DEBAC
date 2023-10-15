@@ -3,8 +3,13 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
+    [Header("Damage")]
     [SerializeField] private int damage;
     [SerializeField] private float timeToDamage;
+
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private string attackTrigger;
 
     private Coroutine damageCoroutine = null;
     private readonly WaitForSeconds waitForDamage = new WaitForSeconds(1);
@@ -25,11 +30,17 @@ public class EnemyBase : MonoBehaviour
         HealthBase health = player.GetComponent<HealthBase>();
         if (health != null)
         {
+            PlayAttackAnimation();
             health.Damage(damage);
         }
 
         yield return waitForDamage;
 
         damageCoroutine = null;
+    }
+
+    private void PlayAttackAnimation()
+    {
+        animator.SetTrigger(attackTrigger);
     }
 }
