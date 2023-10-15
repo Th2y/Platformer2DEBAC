@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: SOLife
   m_EditorClassIdentifier: 
   Value: 3
+  DefaultValue: 3

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: SOProjectile
   m_EditorClassIdentifier: 
   Value: 10
+  DefaultValue: 10

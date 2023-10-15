@@ -14,17 +14,18 @@ public class GunBase : Singleton<GunBase>
 
     [SerializeField] private int damage = 1;
 
+    [SerializeField] private SOInt _projectile;
+
     private readonly List<ProjectileBase> _projectiles = new List<ProjectileBase>();
     private int _actualNumberOfProjectiles = 0;
-
-    private SOInt _projectile;
 
     private Coroutine _currentCoroutine;
     private WaitForSeconds _waitForSeconds => new WaitForSeconds(timeBetweenShoot);
 
     private void Start()
     {
-        _projectile = ItemManager.Instance.Projectiles;
+        _projectile.Value = _projectile.DefaultValue;
+        UIGameManager.Instance.UpdateProjectiles();
 
         projectilePrefab.gameObject.SetActive(false);
 

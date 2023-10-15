@@ -4,4 +4,5 @@ using UnityEngine;
 public class SOInt : ScriptableObject
 {
     public int Value;
+    public int DefaultValue;
 }

@@ -1,10 +1,9 @@
 using Ebac.Core.Singletons;
+using UnityEngine;
 
 public class ItemManager : Singleton<ItemManager>
 {
-    public SOInt Coins;
-    public SOInt Life;
-    public SOInt Projectiles;
+    [SerializeField] private SOInt Coins;
 
     private HealthBase _playerHealth;
 
@@ -15,7 +14,7 @@ public class ItemManager : Singleton<ItemManager>
 
     private void Reset()
     {
-        Coins.Value = 0;
+        Coins.Value = Coins.DefaultValue;
         UIGameManager.Instance.UpdateCoins();
     }
 

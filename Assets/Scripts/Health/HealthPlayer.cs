@@ -1,12 +1,15 @@
+using UnityEngine;
+
 public class HealthPlayer : HealthBase
 {
-    private SOInt life;
+    [SerializeField] private SOInt life;
 
     protected override void Init()
     {
         base.Init();
 
-        if(life == null) life = ItemManager.Instance.Life;
+        life.Value = life.DefaultValue;
+        UIGameManager.Instance.UpdateLife();
     }
 
     public override void Damage(int damage)

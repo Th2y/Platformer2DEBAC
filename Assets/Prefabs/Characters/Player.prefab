@@ -198,6 +198,7 @@ MonoBehaviour:
   destroyOnKill: 0
   delayToKill: 1
   _flashColor: {fileID: 6261123370338711511}
+  life: {fileID: 11400000, guid: 2ea2cf3f72b4cec439ceb3ec195fe65f, type: 2}
 --- !u!1001 &6070171000669310464
 PrefabInstance:
   m_ObjectHideFlags: 0
