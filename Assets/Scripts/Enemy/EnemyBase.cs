@@ -10,7 +10,7 @@ public class EnemyBase : MonoBehaviour
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
-    [SerializeField] private string attackTrigger;
+    [SerializeField] private SOStringAnimations stringAnimations;
 
     private Coroutine _damageCoroutine = null;
     private readonly WaitForSeconds _waitForDamage = new WaitForSeconds(1);
@@ -49,7 +49,7 @@ public class EnemyBase : MonoBehaviour
 
     private void PlayAttackAnimation()
     {
-        animator.SetTrigger(attackTrigger);
+        animator.SetTrigger(stringAnimations.Attack);
     }
 
     private void OnKill()

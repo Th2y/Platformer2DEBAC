@@ -10,7 +10,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private Transform charactersParent;
 
     [Header("Player")]
-    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private SOPlayers players;
 
     [Header("Enemies")]
     [SerializeField] private List<GameObject> enemies;
@@ -20,7 +20,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private Transform startPoint;
 
-    private GameObject _currentPlayer;
+    private Player _currentPlayer;
 
     private void Start()
     {
@@ -37,7 +37,9 @@ public class GameManager : Singleton<GameManager>
 
     private void SpawnPlayer()
     {
-        _currentPlayer = Instantiate(playerPrefab, charactersParent);
+        int i = Random.Range(0, players.PlayersDic.Count);
+
+        _currentPlayer = Instantiate(players.PlayerList[i], charactersParent);
         _currentPlayer.transform.position = startPoint.transform.position;
     }
 }

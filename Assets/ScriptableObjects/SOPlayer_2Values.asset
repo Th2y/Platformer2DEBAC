@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5281794e3a0f13343a7954b263adb774, type: 3}
-  m_Name: SettingsData
+  m_Script: {fileID: 11500000, guid: 959047f008a27ba49b14910a68c3a02d, type: 3}
+  m_Name: SOPlayer_2Values
   m_EditorClassIdentifier: 
-  leftCode: 97
-  rigthCode: 100
-  jumpCode: 32
-  runCode: 306
+  friction: {x: 0.5, y: 0}
+  speedX: 10
+  speedRun: 15
+  forceJump: 30
+  playerSwipDuration: 0.1

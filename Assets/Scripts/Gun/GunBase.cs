@@ -14,6 +14,8 @@ public class GunBase : Singleton<GunBase>
 
     [SerializeField] private int damage = 1;
 
+    [SerializeField] private SOInt _projectile;
+
     private readonly List<ProjectileBase> _projectiles = new List<ProjectileBase>();
     private int _actualNumberOfProjectiles = 0;
 
@@ -22,7 +24,8 @@ public class GunBase : Singleton<GunBase>
 
     private void Start()
     {
-        UIGameManager.Instance.UpdateProjectiles(maxOfProjectiles.ToString());
+        _projectile.Value = _projectile.DefaultValue;
+        UIGameManager.Instance.UpdateProjectiles();
 
         projectilePrefab.gameObject.SetActive(false);
 
@@ -77,7 +80,8 @@ public class GunBase : Singleton<GunBase>
             }
             _actualNumberOfProjectiles++;
 
-            UIGameManager.Instance.UpdateProjectiles((maxOfProjectiles - _actualNumberOfProjectiles).ToString());
+            _projectile.Value = maxOfProjectiles - _actualNumberOfProjectiles;
+            UIGameManager.Instance.UpdateProjectiles();
         }
     }
 
@@ -85,6 +89,7 @@ public class GunBase : Singleton<GunBase>
     {
         _actualNumberOfProjectiles--;
 
-        UIGameManager.Instance.UpdateProjectiles((maxOfProjectiles - _actualNumberOfProjectiles).ToString());
+        _projectile.Value = maxOfProjectiles - _actualNumberOfProjectiles;
+        UIGameManager.Instance.UpdateProjectiles();
     }
 }

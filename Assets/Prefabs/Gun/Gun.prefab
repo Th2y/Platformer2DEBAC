@@ -43,8 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9576b037e9edb20428b6a6b0f95698be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSideReference: {fileID: 0}
   projectilePrefab: {fileID: 7026000366463773684, guid: 5cb8027d8e4deb946a931b11212559b2, type: 3}
   positionToShoot: {fileID: 9172502906004199794}
   maxOfProjectiles: 10
   timeBetweenShoot: 0.2
   damage: 1
+  _projectile: {fileID: 11400000, guid: e9b9aa4372a353a4ca10e18c9de35ff1, type: 2}

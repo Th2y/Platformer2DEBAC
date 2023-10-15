@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd6a8ddb4dc03641bf12b59fb68bf3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Coins: {fileID: 11400000, guid: f6f51487ad7f9444bad838f1660fd38f, type: 2}
 --- !u!1 &135190547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,6 +1016,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 457309687}
+  - component: {fileID: 457309688}
   m_Layer: 5
   m_Name: Coins
   m_TagString: Untagged
@@ -1043,6 +1045,20 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: -50}
   m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &457309688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457309686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54b5dbf7b1a0d5419c7e9481023655b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  so: {fileID: 11400000, guid: f6f51487ad7f9444bad838f1660fd38f, type: 2}
+  valueText: {fileID: 401819657}
 --- !u!1 &468286095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,7 +1296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charactersParent: {fileID: 152857737}
-  playerPrefab: {fileID: 1933263168648141961, guid: 3426098fa5c02d84a86ef4a995997c78, type: 3}
+  players: {fileID: 11400000, guid: bd4e9fe9ebaef4747b6d8782c5c12f3e, type: 2}
   enemies: []
   projectilesParent: {fileID: 500861202}
   virtualCamera: {fileID: 1106764582}
@@ -1428,6 +1444,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 533750689}
+  - component: {fileID: 533750690}
   m_Layer: 5
   m_Name: Life
   m_TagString: Untagged
@@ -1456,6 +1473,20 @@ RectTransform:
   m_AnchoredPosition: {x: 250, y: -50}
   m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &533750690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533750688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54b5dbf7b1a0d5419c7e9481023655b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  so: {fileID: 11400000, guid: 2ea2cf3f72b4cec439ceb3ec195fe65f, type: 2}
+  valueText: {fileID: 525858385}
 --- !u!1001 &587012124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2027,6 +2058,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 827569565}
+  - component: {fileID: 827569566}
   m_Layer: 5
   m_Name: Projectiles
   m_TagString: Untagged
@@ -2055,6 +2087,20 @@ RectTransform:
   m_AnchoredPosition: {x: 400, y: -50}
   m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &827569566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827569564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54b5dbf7b1a0d5419c7e9481023655b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  so: {fileID: 11400000, guid: e9b9aa4372a353a4ca10e18c9de35ff1, type: 2}
+  valueText: {fileID: 2143586848}
 --- !u!1001 &852192475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2316,9 +2362,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35ba2b54bea1ad54b92a9a6414a0dab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsText: {fileID: 401819657}
-  lifeText: {fileID: 525858385}
-  projectilesText: {fileID: 2143586848}
+  coinsSO: {fileID: 457309688}
+  lifeSO: {fileID: 533750690}
+  projectilesSO: {fileID: 827569566}
 --- !u!1 &913452762
 GameObject:
   m_ObjectHideFlags: 0

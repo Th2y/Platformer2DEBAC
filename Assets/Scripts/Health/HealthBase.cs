@@ -6,15 +6,13 @@ public class HealthBase : MonoBehaviour
     [NonSerialized] public Action OnKill;
 
     [SerializeField] protected Animator animator;
-    [SerializeField] private string deathTriggerAnim;
+    [SerializeField] private SOStringAnimations stringAnimations;
 
     [SerializeField] protected int startLife;
     [SerializeField] protected bool destroyOnKill = false;
     [SerializeField] protected float delayToKill = 1f;
 
     [SerializeField] private FlashColor _flashColor;
-
-    protected int currentLife;
 
     private bool _isDead = false;
 
@@ -28,14 +26,11 @@ public class HealthBase : MonoBehaviour
     protected virtual void Init()
     {
         _isDead = false;
-        currentLife = startLife;
     }
 
     public virtual void Damage(int damage)
     {
         if (_isDead) return;
-
-        currentLife -= damage;
 
         Flash();
     }
@@ -59,17 +54,14 @@ public class HealthBase : MonoBehaviour
         }
         else
         {
-            animator.SetTrigger(deathTriggerAnim);
+            animator.SetTrigger(stringAnimations.Death);
         }
     }
 
-    public int GetCurrentLife()
+    public virtual int GetCurrentLife()
     {
-        return currentLife;
+        return 0;
     }
 
-    public void SetCurrentLife(int amount)
-    {
-        currentLife += amount;
-    }
+    public virtual void SetCurrentLife(int amount) {}
 }

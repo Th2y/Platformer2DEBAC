@@ -164,22 +164,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRB: {fileID: 2810697887740768577}
-  friction: {x: 0.5, y: 0}
-  speedX: 10
-  speedRun: 15
-  forceJump: 30
   animator: {fileID: 919312975945725663}
-  fallBoolAnim: Falling
-  jumpBoolAnim: Jumping
-  runBoolAnim: Running
-  walkBoolAnim: Walking
-  playerSwipDuration: 0.1
+  stringAnimations: {fileID: 11400000, guid: a1e614113c80cb1439fced92693ccf23, type: 2}
   groundLayer:
     serializedVersion: 2
     m_Bits: 1
   maxRayLength: 1
+  playerValues: {fileID: 11400000, guid: f177cbf59ff52b249ac16950eeacd44b, type: 2}
   health: {fileID: 4189133654264197414}
-  settingsData: {fileID: 11400000, guid: 76d6b65208f9f1a4293fe04615b771f7, type: 2}
+  settings: {fileID: 11400000, guid: 76d6b65208f9f1a4293fe04615b771f7, type: 2}
 --- !u!114 &4189133654264197414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,11 +186,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 919312975945725663}
-  deathTriggerAnim: Death
+  stringAnimations: {fileID: 11400000, guid: a1e614113c80cb1439fced92693ccf23, type: 2}
   startLife: 3
   destroyOnKill: 0
   delayToKill: 1
   _flashColor: {fileID: 6261123370338711511}
+  life: {fileID: 11400000, guid: 2ea2cf3f72b4cec439ceb3ec195fe65f, type: 2}
 --- !u!1001 &6070171000669310464
 PrefabInstance:
   m_ObjectHideFlags: 0
