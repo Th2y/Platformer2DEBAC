@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1450561210544407466}
   - component: {fileID: 1258274372369299680}
   - component: {fileID: 6955666428779469878}
+  - component: {fileID: 5528848254570478115}
   m_Layer: 0
   m_Name: Life
   m_TagString: Untagged
@@ -63,6 +64,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagPlayer: Player
   value: 1
+--- !u!95 &5528848254570478115
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194972924782533140}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1b3269efd91821841a42be3b2aa120e0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1499432767499844428
 GameObject:
   m_ObjectHideFlags: 0
