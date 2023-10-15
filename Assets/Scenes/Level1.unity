@@ -167,8 +167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Coins: {fileID: 11400000, guid: f6f51487ad7f9444bad838f1660fd38f, type: 2}
-  Life: {fileID: 11400000, guid: 2ea2cf3f72b4cec439ceb3ec195fe65f, type: 2}
-  Projectiles: {fileID: 11400000, guid: e9b9aa4372a353a4ca10e18c9de35ff1, type: 2}
 --- !u!1 &135190547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,7 +1296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charactersParent: {fileID: 152857737}
-  playerPrefab: {fileID: 1933263168648141961, guid: 3426098fa5c02d84a86ef4a995997c78, type: 3}
+  players: {fileID: 11400000, guid: bd4e9fe9ebaef4747b6d8782c5c12f3e, type: 2}
   enemies: []
   projectilesParent: {fileID: 500861202}
   virtualCamera: {fileID: 1106764582}
