@@ -1,8 +1,10 @@
-using System.Collections;
+using System;
 using UnityEngine;
 
 public class HealthBase : MonoBehaviour
 {
+    [NonSerialized] public Action OnKill;
+
     [SerializeField] protected Animator animator;
     [SerializeField] private string deathTriggerAnim;
 
@@ -10,36 +12,48 @@ public class HealthBase : MonoBehaviour
     [SerializeField] protected bool destroyOnKill = false;
     [SerializeField] protected float delayToKill = 1f;
 
-    private int _currentLife;
+    [SerializeField] private FlashColor _flashColor;
+
+    protected int currentLife;
+
     private bool _isDead = false;
 
     private void Awake()
     {
+        if(_flashColor == null) _flashColor = GetComponent<FlashColor>();
+
         Init();
     }
 
-    private void Init()
+    protected virtual void Init()
     {
         _isDead = false;
-        _currentLife = startLife;
+        currentLife = startLife;
     }
 
-    public void Damage(int damage)
+    public virtual void Damage(int damage)
     {
         if (_isDead) return;
 
-        _currentLife -= damage;
-        if(_currentLife <= 0 )
-        {
-            Kill();
-        }
+        currentLife -= damage;
+
+        Flash();
     }
 
-    private void Kill()
+    private void Flash()
+    {
+        if (_flashColor == null) return;
+
+        _flashColor.DamageFlash();
+    }
+
+    protected void Kill()
     {
         _isDead = true;
 
-        if(destroyOnKill)
+        OnKill?.Invoke();
+
+        if (destroyOnKill)
         {
             Destroy(gameObject, delayToKill);
         }
@@ -47,5 +61,15 @@ public class HealthBase : MonoBehaviour
         {
             animator.SetTrigger(deathTriggerAnim);
         }
+    }
+
+    public int GetCurrentLife()
+    {
+        return currentLife;
+    }
+
+    public void SetCurrentLife(int amount)
+    {
+        currentLife += amount;
     }
 }

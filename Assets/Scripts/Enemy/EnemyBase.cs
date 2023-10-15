@@ -1,36 +1,59 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
+    [Header("Damage")]
     [SerializeField] private int damage;
     [SerializeField] private float timeToDamage;
+    [SerializeField] private HealthEnemy health;
 
-    private Coroutine damageCoroutine = null;
-    private WaitForSeconds waitForDamage = new WaitForSeconds(1);
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private string attackTrigger;
+
+    private Coroutine _damageCoroutine = null;
+    private readonly WaitForSeconds _waitForDamage = new WaitForSeconds(1);
+
+    private void Awake()
+    {
+        if(health != null)
+        {
+            health.OnKill += OnKill;
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (damageCoroutine == null)
+        if (_damageCoroutine == null)
         {
-            if (collision.gameObject.CompareTag("Player"))
+            if (collision.gameObject.TryGetComponent<HealthPlayer>(out var player))
             {
-                StartCoroutine(DoDamage(collision.gameObject));
+                _damageCoroutine = StartCoroutine(DoDamage(player));
             }
         }
     }
 
-    private IEnumerator DoDamage(GameObject player)
+    private IEnumerator DoDamage(HealthPlayer player)
     {
-        HealthBase health = player.GetComponent<HealthBase>();
-        if (health != null)
+        while (true)
         {
-            health.Damage(damage);
+            PlayAttackAnimation();
+            player.Damage(damage);
+
+            yield return _waitForDamage;
+
+            StopCoroutine(_damageCoroutine);
         }
+    }
 
-        yield return waitForDamage;
+    private void PlayAttackAnimation()
+    {
+        animator.SetTrigger(attackTrigger);
+    }
 
-        damageCoroutine = null;
+    private void OnKill()
+    {
+        health.OnKill -= OnKill;
     }
 }
