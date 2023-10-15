@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
@@ -8,7 +7,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private float timeToDamage;
 
     private Coroutine damageCoroutine = null;
-    private WaitForSeconds waitForDamage = new WaitForSeconds(1);
+    private readonly WaitForSeconds waitForDamage = new WaitForSeconds(1);
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

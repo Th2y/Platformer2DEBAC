@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class HealthBase : MonoBehaviour
@@ -22,6 +21,7 @@ public class HealthBase : MonoBehaviour
     {
         _isDead = false;
         _currentLife = startLife;
+        UIGameManager.Instance.UpdateLife(_currentLife.ToString());
     }
 
     public void Damage(int damage)
@@ -29,7 +29,9 @@ public class HealthBase : MonoBehaviour
         if (_isDead) return;
 
         _currentLife -= damage;
-        if(_currentLife <= 0 )
+        UIGameManager.Instance.UpdateLife(_currentLife.ToString());
+
+        if (_currentLife <= 0 )
         {
             Kill();
         }
@@ -47,5 +49,15 @@ public class HealthBase : MonoBehaviour
         {
             animator.SetTrigger(deathTriggerAnim);
         }
+    }
+
+    public int GetCurrentLife()
+    {
+        return _currentLife;
+    }
+
+    public void SetCurrentLife(int amount)
+    {
+        _currentLife += amount;
     }
 }
