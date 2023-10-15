@@ -5,45 +5,46 @@ public class Player : MonoBehaviour
 {
     [Header("Speed Setup")]
     [SerializeField] private Rigidbody2D myRB;
-    [SerializeField] private SoValuesMovement valuesMovement;
 
     [Header("Animation Player")]
     [SerializeField] private Animator animator;
     [SerializeField] private SOStringAnimations stringAnimations;
-    [SerializeField] private float playerSwipDuration = .1f;
 
     [Header("Floor")]
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float maxRayLength = 1;
 
-    [Header("Scripts References")]
+    [Header("Setup")]
+    [SerializeField] private SOPlayerValues playerValues;
     [SerializeField] private HealthPlayer health;
-    [SerializeField] private SettingsData settingsData;
+    [SerializeField] private SOSettings settings;
 
     private KeyCode leftCode;
     private KeyCode rigthCode;
     private KeyCode jumpCode;
     private KeyCode runCode;
 
-    private float _currentSpeedX = 0;
-    private bool _isJumping = false;
-
     private Vector2 friction;
     private float speedX;
     private float speedRun;
     private float forceJump;
+    private float _currentSpeedX = 0;
+    private bool _isJumping = false;
+
+    private float playerSwipDuration;
 
     private void Awake()
     {
-        leftCode = settingsData.leftCode;
-        rigthCode = settingsData.rigthCode;
-        jumpCode = settingsData.jumpCode;
-        runCode = settingsData.runCode;
+        leftCode = settings.leftCode;
+        rigthCode = settings.rigthCode;
+        jumpCode = settings.jumpCode;
+        runCode = settings.runCode;
 
-        friction = valuesMovement.friction;
-        speedX = valuesMovement.speedX;
-        speedRun = valuesMovement.speedRun;
-        forceJump = valuesMovement.forceJump;
+        friction = playerValues.friction;
+        speedX = playerValues.speedX;
+        speedRun = playerValues.speedRun;
+        forceJump = playerValues.forceJump;
+        playerSwipDuration = playerValues.playerSwipDuration;
 
         health.OnKill += OnKill;
     }

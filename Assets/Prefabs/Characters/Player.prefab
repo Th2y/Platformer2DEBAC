@@ -164,16 +164,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRB: {fileID: 2810697887740768577}
-  valuesMovement: {fileID: 11400000, guid: ee638d162b289964dba7dffc55946fe7, type: 2}
   animator: {fileID: 919312975945725663}
   stringAnimations: {fileID: 11400000, guid: a1e614113c80cb1439fced92693ccf23, type: 2}
-  playerSwipDuration: 0.1
   groundLayer:
     serializedVersion: 2
     m_Bits: 1
   maxRayLength: 1
+  playerValues: {fileID: 11400000, guid: f177cbf59ff52b249ac16950eeacd44b, type: 2}
   health: {fileID: 4189133654264197414}
-  settingsData: {fileID: 11400000, guid: 76d6b65208f9f1a4293fe04615b771f7, type: 2}
+  settings: {fileID: 11400000, guid: 76d6b65208f9f1a4293fe04615b771f7, type: 2}
 --- !u!114 &4189133654264197414
 MonoBehaviour:
   m_ObjectHideFlags: 0

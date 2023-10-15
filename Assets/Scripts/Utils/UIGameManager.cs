@@ -9,16 +9,16 @@ public class UIGameManager : Singleton<UIGameManager>
 
     public void UpdateCoins()
     {
-        coinsSO.UpdateValue.Invoke();
+        coinsSO.UpdateValue?.Invoke();
     }
 
     public void UpdateLife()
     {
-        lifeSO.UpdateValue.Invoke();
+        lifeSO.UpdateValue?.Invoke();
     }
 
     public void UpdateProjectiles()
     {
-        projectilesSO.UpdateValue.Invoke();
+        projectilesSO.UpdateValue?.Invoke();
     }
 }

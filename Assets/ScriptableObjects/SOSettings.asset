@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5281794e3a0f13343a7954b263adb774, type: 3}
-  m_Name: SettingsData
+  m_Script: {fileID: 11500000, guid: af8f1652aed32b04aae3404c3d2d2b5c, type: 3}
+  m_Name: SOSettings
   m_EditorClassIdentifier: 
   leftCode: 97
   rigthCode: 100

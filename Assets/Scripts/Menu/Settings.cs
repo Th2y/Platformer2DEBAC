@@ -6,7 +6,7 @@ using UnityEngine;
 public class Settings : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private SettingsData settingsData;
+    [SerializeField] private SOSettings settingsData;
 
     private void Awake()
     {

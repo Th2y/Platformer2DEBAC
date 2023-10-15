@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObjects/Settings Data")]
-public class SettingsData : ScriptableObject
+[CreateAssetMenu(menuName = "ScriptableObjects/SOSettings")]
+public class SOSettings : ScriptableObject
 {
     [Header("Key Codes")]
     public KeyCode leftCode = KeyCode.A;
