@@ -6,6 +6,7 @@ public class EnemyBase : MonoBehaviour
     [Header("Damage")]
     [SerializeField] private int damage;
     [SerializeField] private float timeToDamage;
+    [SerializeField] private HealthEnemy health;
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
@@ -13,6 +14,14 @@ public class EnemyBase : MonoBehaviour
 
     private Coroutine _damageCoroutine = null;
     private readonly WaitForSeconds _waitForDamage = new WaitForSeconds(1);
+
+    private void Awake()
+    {
+        if(health != null)
+        {
+            health.OnKill += OnKill;
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -41,5 +50,10 @@ public class EnemyBase : MonoBehaviour
     private void PlayAttackAnimation()
     {
         animator.SetTrigger(attackTrigger);
+    }
+
+    private void OnKill()
+    {
+        health.OnKill -= OnKill;
     }
 }

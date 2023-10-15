@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxRayLength = 1;
 
     [Header("Scripts References")]
+    [SerializeField] private HealthPlayer health;
     [SerializeField] private SettingsData settingsData;
 
     private KeyCode leftCode;
@@ -41,6 +42,8 @@ public class Player : MonoBehaviour
         rigthCode = settingsData.rigthCode;
         jumpCode = settingsData.jumpCode;
         runCode = settingsData.runCode;
+
+        health.OnKill += OnKill;
     }
 
     private void Update()
@@ -131,5 +134,10 @@ public class Player : MonoBehaviour
         {
             animator.SetBool(jumpBoolAnim, false);
         }
+    }
+
+    private void OnKill()
+    {
+        health.OnKill -= OnKill;
     }
 }

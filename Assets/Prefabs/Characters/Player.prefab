@@ -178,6 +178,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   maxRayLength: 1
+  health: {fileID: 4189133654264197414}
   settingsData: {fileID: 11400000, guid: 76d6b65208f9f1a4293fe04615b771f7, type: 2}
 --- !u!114 &4189133654264197414
 MonoBehaviour:

@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class HealthBase : MonoBehaviour
 {
+    [NonSerialized] public Action OnKill;
+
     [SerializeField] protected Animator animator;
     [SerializeField] private string deathTriggerAnim;
 
@@ -48,7 +51,9 @@ public class HealthBase : MonoBehaviour
     {
         _isDead = true;
 
-        if(destroyOnKill)
+        OnKill?.Invoke();
+
+        if (destroyOnKill)
         {
             Destroy(gameObject, delayToKill);
         }
