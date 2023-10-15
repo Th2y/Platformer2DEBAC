@@ -11,8 +11,6 @@ public class HealthPlayer : HealthBase
     {
         base.Damage(damage);
 
-        Flash();
-
         UIGameManager.Instance.UpdateLife(currentLife.ToString());
 
         if (currentLife <= 0)

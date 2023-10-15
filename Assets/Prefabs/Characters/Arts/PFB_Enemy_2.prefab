@@ -349,7 +349,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2944973745361044811}
   - component: {fileID: 3122169294817524646}
-  m_Layer: 0
+  - component: {fileID: 3972882815115081377}
+  m_Layer: 8
   m_Name: PFB_Enemy_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,6 +400,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3972882815115081377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3176744783887258002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebf23360c17ff054296388725928ba43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageRenderers:
+  - {fileID: 3562818169227747833}
+  - {fileID: 7803505671189439292}
+  - {fileID: 444083526418024891}
+  - {fileID: 7779900026986254017}
+  - {fileID: 8779633609815029051}
+  - {fileID: 1181539698875460310}
+  - {fileID: 6176580827313767728}
+  damageColor: {r: 0.89411765, g: 0.32941177, b: 0.26666668, a: 1}
+  damageDuration: 0.2
 --- !u!1 &3257322378915922041
 GameObject:
   m_ObjectHideFlags: 0

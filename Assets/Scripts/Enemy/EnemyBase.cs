@@ -11,32 +11,31 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private string attackTrigger;
 
-    private Coroutine damageCoroutine = null;
-    private readonly WaitForSeconds waitForDamage = new WaitForSeconds(1);
+    private Coroutine _damageCoroutine = null;
+    private readonly WaitForSeconds _waitForDamage = new WaitForSeconds(1);
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (damageCoroutine == null)
+        if (_damageCoroutine == null)
         {
-            if (collision.gameObject.CompareTag("Player"))
+            if (collision.gameObject.TryGetComponent<HealthPlayer>(out var player))
             {
-                StartCoroutine(DoDamage(collision.gameObject));
+                _damageCoroutine = StartCoroutine(DoDamage(player));
             }
         }
     }
 
-    private IEnumerator DoDamage(GameObject player)
+    private IEnumerator DoDamage(HealthPlayer player)
     {
-        HealthBase health = player.GetComponent<HealthBase>();
-        if (health != null)
+        while (true)
         {
             PlayAttackAnimation();
-            health.Damage(damage);
+            player.Damage(damage);
+
+            yield return _waitForDamage;
+
+            StopCoroutine(_damageCoroutine);
         }
-
-        yield return waitForDamage;
-
-        damageCoroutine = null;
     }
 
     private void PlayAttackAnimation()

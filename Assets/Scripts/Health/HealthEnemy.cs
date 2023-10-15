@@ -4,8 +4,6 @@ public class HealthEnemy : HealthBase
     {
         base.Damage(damage);
 
-        Flash();
-
         if (currentLife <= 0)
         {
             Kill();

@@ -33,9 +33,11 @@ public class HealthBase : MonoBehaviour
         if (_isDead) return;
 
         currentLife -= damage;
+
+        Flash();
     }
 
-    protected virtual void Flash()
+    private void Flash()
     {
         if (_flashColor == null) return;
 

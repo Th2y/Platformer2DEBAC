@@ -288,6 +288,7 @@ Transform:
   m_Children:
   - {fileID: 6689622686093459494}
   - {fileID: 295163676}
+  - {fileID: 500861202}
   m_Father: {fileID: 673366247}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1117,6 +1118,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 468286095}
   m_CullTransparentMesh: 1
+--- !u!1 &500861201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 500861202}
+  m_Layer: 9
+  m_Name: Projectiles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &500861202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500861201}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 152857737}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &504059431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1217,6 +1248,7 @@ MonoBehaviour:
   charactersParent: {fileID: 152857737}
   playerPrefab: {fileID: 1933263168648141961, guid: 3426098fa5c02d84a86ef4a995997c78, type: 3}
   enemies: []
+  projectilesParent: {fileID: 500861202}
   virtualCamera: {fileID: 1106764582}
   startPoint: {fileID: 295163676}
 --- !u!1 &525858384
@@ -5872,7 +5904,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4921084091772524118, guid: 388deb09039bcab43908c93e6c2111d3, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: Enemy_1
       objectReference: {fileID: 0}
     - target: {fileID: 6533111802218566950, guid: 388deb09039bcab43908c93e6c2111d3, type: 3}
       propertyPath: m_SortingLayer

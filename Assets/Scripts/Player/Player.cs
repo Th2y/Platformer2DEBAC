@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Speed Setup")]
-    [SerializeField] private Rigidbody2D playerRB;
+    [SerializeField] private Rigidbody2D myRB;
     [SerializeField] private Vector2 friction = new Vector2(.1f, 0);
     [SerializeField] private float speedX;
     [SerializeField] private float speedRun;
@@ -32,8 +32,8 @@ public class Player : MonoBehaviour
     private KeyCode jumpCode;
     private KeyCode runCode;
 
-    private float currentSpeedX = 0;
-    private bool isJumping = false;
+    private float _currentSpeedX = 0;
+    private bool _isJumping = false;
 
     private void Awake()
     {
@@ -51,67 +51,66 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (isJumping && collision.gameObject.CompareTag("Floor"))
+        if (_isJumping && collision.gameObject.CompareTag("Floor"))
         {
-            isJumping = false;
+            _isJumping = false;
             animator.SetBool(jumpBoolAnim, false);
             animator.SetBool(fallBoolAnim, false);
         }
     }
 
-
     private void Movement()
     {
         bool isRunning = Input.GetKey(runCode);
-        currentSpeedX = isRunning ? speedRun : speedX;
+        _currentSpeedX = isRunning ? speedRun : speedX;
 
         if (Input.GetKey(rigthCode))
         {
             animator.SetBool(walkBoolAnim, true);
             animator.SetBool(runBoolAnim, isRunning);
 
-            if(playerRB.transform.localScale.x != 1)
+            if(myRB.transform.localScale.x != 1)
             {
-                playerRB.transform.DOScaleX(1, playerSwipDuration);
+                myRB.transform.DOScaleX(1, playerSwipDuration);
             }
-            playerRB.velocity = new Vector2(currentSpeedX, playerRB.velocity.y);
+            myRB.velocity = new Vector2(_currentSpeedX, myRB.velocity.y);
         }
         else if (Input.GetKey(leftCode))
         {
             animator.SetBool(walkBoolAnim, true);
             animator.SetBool(runBoolAnim, isRunning);
 
-            if (playerRB.transform.localScale.x != -1)
+            if (myRB.transform.localScale.x != -1)
             {
-                playerRB.transform.DOScaleX(-1, playerSwipDuration);
+                myRB.transform.DOScaleX(-1, playerSwipDuration);
             }
-            playerRB.velocity = new Vector2(-currentSpeedX, playerRB.velocity.y);
+            myRB.velocity = new Vector2(-_currentSpeedX, myRB.velocity.y);
         }
         else
         {
             animator.SetBool(walkBoolAnim, false);
             animator.SetBool(runBoolAnim, false);
 
-            if (playerRB.velocity.x > 0)
+            if (myRB.velocity.x > 0)
             {
-                playerRB.velocity -= friction;
+                myRB.velocity -= friction;
             }
-            else if (playerRB.velocity.x < 0)
+            else if (myRB.velocity.x < 0)
             {
-                playerRB.velocity += friction;
+                myRB.velocity += friction;
             }
         }
     }
 
     private void HandleJump()
     {
-        if (!isJumping && Input.GetKeyDown(jumpCode))
+        if (!_isJumping && Input.GetKeyDown(jumpCode))
         {
-            isJumping = true;
+            _isJumping = true;
             animator.SetBool(jumpBoolAnim, true);
-            playerRB.velocity = Vector2.up * forceJump;
+            myRB.velocity = Vector2.up * forceJump;
         }
-        else if (playerRB.velocity.y <= -28)
+        else if (myRB.velocity.y <= -28)
         {
             RaycastHit2D hit = Physics2D.Raycast(
                 new Vector3(transform.position.x, transform.position.y - .5f, transform.position.z), 
@@ -124,11 +123,11 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (playerRB.velocity.y <= -28)
+        if (myRB.velocity.y <= -28)
         {
             animator.SetBool(fallBoolAnim, true);
         }
-        else if(playerRB.velocity.y < Vector2.up.y * forceJump)
+        else if(myRB.velocity.y < Vector2.up.y * forceJump)
         {
             animator.SetBool(jumpBoolAnim, false);
         }
