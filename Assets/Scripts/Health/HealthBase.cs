@@ -6,7 +6,7 @@ public class HealthBase : MonoBehaviour
     [NonSerialized] public Action OnKill;
 
     [SerializeField] protected Animator animator;
-    [SerializeField] private string deathTriggerAnim;
+    [SerializeField] private SOStringAnimations stringAnimations;
 
     [SerializeField] protected int startLife;
     [SerializeField] protected bool destroyOnKill = false;
@@ -54,7 +54,7 @@ public class HealthBase : MonoBehaviour
         }
         else
         {
-            animator.SetTrigger(deathTriggerAnim);
+            animator.SetTrigger(stringAnimations.Death);
         }
     }
 

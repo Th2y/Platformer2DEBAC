@@ -164,15 +164,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRB: {fileID: 2810697887740768577}
-  friction: {x: 0.5, y: 0}
-  speedX: 10
-  speedRun: 15
-  forceJump: 30
+  valuesMovement: {fileID: 11400000, guid: ee638d162b289964dba7dffc55946fe7, type: 2}
   animator: {fileID: 919312975945725663}
-  fallBoolAnim: Falling
-  jumpBoolAnim: Jumping
-  runBoolAnim: Running
-  walkBoolAnim: Walking
+  stringAnimations: {fileID: 11400000, guid: a1e614113c80cb1439fced92693ccf23, type: 2}
   playerSwipDuration: 0.1
   groundLayer:
     serializedVersion: 2
@@ -193,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 919312975945725663}
-  deathTriggerAnim: Death
+  stringAnimations: {fileID: 11400000, guid: a1e614113c80cb1439fced92693ccf23, type: 2}
   startLife: 3
   destroyOnKill: 0
   delayToKill: 1

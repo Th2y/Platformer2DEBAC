@@ -88,7 +88,7 @@ MonoBehaviour:
   timeToDamage: 15
   health: {fileID: 3862058869193522070}
   animator: {fileID: 8787600642032526948}
-  attackTrigger: Attack
+  stringAnimations: {fileID: 11400000, guid: 7ab8624dee98b964f990aa921fbb4356, type: 2}
 --- !u!114 &3862058869193522070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8787600642032526948}
-  deathTriggerAnim: Death
+  stringAnimations: {fileID: 11400000, guid: 7ab8624dee98b964f990aa921fbb4356, type: 2}
   startLife: 3
   destroyOnKill: 1
   delayToKill: 0.5
