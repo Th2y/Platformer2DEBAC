@@ -2,27 +2,27 @@ using Ebac.Core.Singletons;
 
 public class ItemManager : Singleton<ItemManager>
 {
-    private HealthBase _playerHealth;
+    public SOInt Coins;
+    public SOInt Life;
+    public SOInt Projectiles;
 
-    private int coins;
+    private HealthBase _playerHealth;
 
     private void Start()
     {
-        _playerHealth = FindObjectOfType<HealthPlayer>();
-
         Reset();
     }
 
     private void Reset()
     {
-        coins = 0;
-        UIGameManager.Instance.UpdateCoins(coins.ToString());
+        Coins.Value = 0;
+        UIGameManager.Instance.UpdateCoins();
     }
 
     public void AddCoins(int amount = 1)
     {
-        coins += amount;
-        UIGameManager.Instance.UpdateCoins(coins.ToString());
+        Coins.Value += amount;
+        UIGameManager.Instance.UpdateCoins();
     }
 
     public void AddLife(int amount = 1)
@@ -30,6 +30,5 @@ public class ItemManager : Singleton<ItemManager>
         if(_playerHealth == null) _playerHealth = FindObjectOfType<HealthPlayer>();
 
         _playerHealth.SetCurrentLife(amount);
-        UIGameManager.Instance.UpdateLife(_playerHealth.GetCurrentLife().ToString());
     }
 }

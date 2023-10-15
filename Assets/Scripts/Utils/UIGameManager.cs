@@ -1,25 +1,24 @@
 using Ebac.Core.Singletons;
-using TMPro;
 using UnityEngine;
 
 public class UIGameManager : Singleton<UIGameManager>
 {
-    [SerializeField] private TextMeshProUGUI coinsText;
-    [SerializeField] private TextMeshProUGUI lifeText;
-    [SerializeField] private TextMeshProUGUI projectilesText;
+    [SerializeField] private SOIntUpdate coinsSO;
+    [SerializeField] private SOIntUpdate lifeSO;
+    [SerializeField] private SOIntUpdate projectilesSO;
 
-    public void UpdateCoins(string text)
+    public void UpdateCoins()
     {
-        coinsText.text = text;
+        coinsSO.UpdateValue.Invoke();
     }
 
-    public void UpdateLife(string text)
+    public void UpdateLife()
     {
-        lifeText.text = text;
+        lifeSO.UpdateValue.Invoke();
     }
 
-    public void UpdateProjectiles(string text)
+    public void UpdateProjectiles()
     {
-        projectilesText.text = text;
+        projectilesSO.UpdateValue.Invoke();
     }
 }

@@ -14,8 +14,6 @@ public class HealthBase : MonoBehaviour
 
     [SerializeField] private FlashColor _flashColor;
 
-    protected int currentLife;
-
     private bool _isDead = false;
 
     private void Awake()
@@ -28,14 +26,11 @@ public class HealthBase : MonoBehaviour
     protected virtual void Init()
     {
         _isDead = false;
-        currentLife = startLife;
     }
 
     public virtual void Damage(int damage)
     {
         if (_isDead) return;
-
-        currentLife -= damage;
 
         Flash();
     }
@@ -63,13 +58,10 @@ public class HealthBase : MonoBehaviour
         }
     }
 
-    public int GetCurrentLife()
+    public virtual int GetCurrentLife()
     {
-        return currentLife;
+        return 0;
     }
 
-    public void SetCurrentLife(int amount)
-    {
-        currentLife += amount;
-    }
+    public virtual void SetCurrentLife(int amount) {}
 }

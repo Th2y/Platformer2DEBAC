@@ -1,21 +1,35 @@
 public class HealthPlayer : HealthBase
 {
+    private SOInt life;
+
     protected override void Init()
     {
         base.Init();
 
-        UIGameManager.Instance.UpdateLife(currentLife.ToString());
+        if(life == null) life = ItemManager.Instance.Life;
     }
 
     public override void Damage(int damage)
     {
         base.Damage(damage);
 
-        UIGameManager.Instance.UpdateLife(currentLife.ToString());
+        life.Value -= damage;
+        UIGameManager.Instance.UpdateLife();
 
-        if (currentLife <= 0)
+        if (life.Value <= 0)
         {
             Kill();
         }
+    }
+
+    public override int GetCurrentLife()
+    {
+        return life.Value;
+    }
+
+    public override void SetCurrentLife(int amount)
+    {
+        life.Value += amount;
+        UIGameManager.Instance.UpdateLife();
     }
 }

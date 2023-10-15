@@ -17,12 +17,14 @@ public class GunBase : Singleton<GunBase>
     private readonly List<ProjectileBase> _projectiles = new List<ProjectileBase>();
     private int _actualNumberOfProjectiles = 0;
 
+    private SOInt _projectile;
+
     private Coroutine _currentCoroutine;
     private WaitForSeconds _waitForSeconds => new WaitForSeconds(timeBetweenShoot);
 
     private void Start()
     {
-        UIGameManager.Instance.UpdateProjectiles(maxOfProjectiles.ToString());
+        _projectile = ItemManager.Instance.Projectiles;
 
         projectilePrefab.gameObject.SetActive(false);
 
@@ -77,7 +79,8 @@ public class GunBase : Singleton<GunBase>
             }
             _actualNumberOfProjectiles++;
 
-            UIGameManager.Instance.UpdateProjectiles((maxOfProjectiles - _actualNumberOfProjectiles).ToString());
+            _projectile.Value = maxOfProjectiles - _actualNumberOfProjectiles;
+            UIGameManager.Instance.UpdateProjectiles();
         }
     }
 
@@ -85,6 +88,7 @@ public class GunBase : Singleton<GunBase>
     {
         _actualNumberOfProjectiles--;
 
-        UIGameManager.Instance.UpdateProjectiles((maxOfProjectiles - _actualNumberOfProjectiles).ToString());
+        _projectile.Value = maxOfProjectiles - _actualNumberOfProjectiles;
+        UIGameManager.Instance.UpdateProjectiles();
     }
 }
