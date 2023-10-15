@@ -84,5 +84,7 @@ public class GunBase : Singleton<GunBase>
     public void DesactiveProjectile()
     {
         _actualNumberOfProjectiles--;
+
+        UIGameManager.Instance.UpdateProjectiles((maxOfProjectiles - _actualNumberOfProjectiles).ToString());
     }
 }
