@@ -7,17 +7,13 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D myRB;
 
     [Header("Jump Setup")]
-    [SerializeField] private Collider2D myCollider;
-    [SerializeField] private float spaceToGround = .1f;
     [SerializeField] private ParticleSystem jumpVFX;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float maxRayLength = 1;
 
     [Header("Animation Player")]
     [SerializeField] private Animator animator;
     [SerializeField] private SOStringAnimations stringAnimations;
-
-    [Header("Floor")]
-    [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private float maxRayLength = 1;
 
     [Header("Setup")]
     [SerializeField] private SOPlayerValues playerValues;
@@ -33,7 +29,6 @@ public class Player : MonoBehaviour
     private float speedX;
     private float speedRun;
     private float forceJump;
-    private float distToGround;
     private float _currentSpeedX = 0;
     private bool _isJumping = false;
 
@@ -51,8 +46,6 @@ public class Player : MonoBehaviour
         speedRun = playerValues.speedRun;
         forceJump = playerValues.forceJump;
         playerSwipDuration = playerValues.playerSwipDuration;
-
-        if(myCollider != null) distToGround = myCollider.bounds.extents.y;
 
         health.OnKill += OnKill;
     }
@@ -118,35 +111,31 @@ public class Player : MonoBehaviour
 
     private bool IsGrounded()
     {
-        //Debug.DrawRay(transform.position, -Vector2.up, Color.white, distToGround + spaceToGround);
-        return Physics2D.Raycast(transform.position, -Vector2.up, distToGround + spaceToGround, groundLayer);
+        //Ray ray = new Ray(new Vector3(transform.position.x, transform.position.y + .5f), Vector2.down);
+        //Debug.DrawRay(ray.origin, ray.direction, Color.white, 100);
+        return Physics2D.
+            Raycast(new Vector3(transform.position.x, transform.position.y + .5f), Vector2.down, groundLayer);
     }
 
     private void HandleJump()
     {
-        if (!_isJumping)
+        if (_isJumping)
         {
-            if(Input.GetKeyDown(jumpCode) && IsGrounded())
+            if (Physics2D.Raycast(transform.position, Vector2.down, maxRayLength, groundLayer))
+            {
+                animator.SetBool(stringAnimations.Fall, true);
+                animator.SetBool(stringAnimations.Jump, false);
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(jumpCode) && IsGrounded())
             {
                 _isJumping = true;
                 animator.SetBool(stringAnimations.Jump, true);
                 myRB.velocity = Vector2.up * forceJump;
                 OnJump();
             }
-        }
-        else if (myRB.velocity.y <= -28)
-        {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, maxRayLength, groundLayer);
-
-            if (hit.collider != null && hit.collider.CompareTag("Floor"))
-            {
-                animator.SetBool(stringAnimations.Fall, true);
-                animator.SetBool(stringAnimations.Jump, false);
-            }
-        }
-        else if(myRB.velocity.y < Vector2.up.y * forceJump)
-        {
-            animator.SetBool(stringAnimations.Jump, false);
         }
     }
 

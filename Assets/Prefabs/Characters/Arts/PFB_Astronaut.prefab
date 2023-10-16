@@ -937,6 +937,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 0}
   delay: 1
+  animator: {fileID: 6413013834153556191}
+  stringAnimations: {fileID: 11400000, guid: a1e614113c80cb1439fced92693ccf23, type: 2}
 --- !u!114 &206724495676471767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -965,7 +967,7 @@ MonoBehaviour:
   - {fileID: 1637968192941115163}
   - {fileID: 7718624693209762858}
   damageColor: {r: 0.89411765, g: 0.32941177, b: 0.26666668, a: 1}
-  duration: 0.2
+  damageDuration: 0.2
 --- !u!1001 &2987335437580250577
 PrefabInstance:
   m_ObjectHideFlags: 0
