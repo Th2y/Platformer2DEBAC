@@ -25,8 +25,8 @@ static class SceneAutoLoader
     [MenuItem("File/Scene Autoload/Select Master Scene...")]
     private static void SelectMasterScene()
     {
-        string masterScene = EditorUtility.OpenFilePanel("Select Master Scene", Application.dataPath, "unity");
-        masterScene = masterScene.Replace(Application.dataPath, "Assets");  //project relative instead of absolute path
+        string masterScene = EditorUtility.OpenFilePanel("Select Master Scene", Application.dataPath + "/Scenes", "unity");
+        masterScene = masterScene.Replace(Application.dataPath, "Assets/Scenes");
         if (!string.IsNullOrEmpty(masterScene))
         {
             MasterScene = masterScene;
@@ -65,7 +65,7 @@ static class SceneAutoLoader
 
         if (!EditorApplication.isPlaying && EditorApplication.isPlayingOrWillChangePlaymode)
         {
-            PreviousScene = EditorSceneManager.GetActiveScene().path;
+            PreviousScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().path;
             if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
             {
                 try
@@ -98,7 +98,6 @@ static class SceneAutoLoader
         }
     }
 
-    // Properties are remembered as editor preferences.
     private const string cEditorPrefLoadMasterOnPlay = "SceneAutoLoader.LoadMasterOnPlay";
     private const string cEditorPrefMasterScene = "SceneAutoLoader.MasterScene";
     private const string cEditorPrefPreviousScene = "SceneAutoLoader.PreviousScene";
@@ -111,13 +110,13 @@ static class SceneAutoLoader
 
     private static string MasterScene
     {
-        get { return EditorPrefs.GetString(cEditorPrefMasterScene, "Master.unity"); }
+        get { return EditorPrefs.GetString(cEditorPrefMasterScene, "Menu.unity"); }
         set { EditorPrefs.SetString(cEditorPrefMasterScene, value); }
     }
 
     private static string PreviousScene
     {
-        get { return EditorPrefs.GetString(cEditorPrefPreviousScene, EditorSceneManager.GetActiveScene().path); }
+        get { return EditorPrefs.GetString(cEditorPrefPreviousScene, UnityEngine.SceneManagement.SceneManager.GetActiveScene().path); }
         set { EditorPrefs.SetString(cEditorPrefPreviousScene, value); }
     }
 }
