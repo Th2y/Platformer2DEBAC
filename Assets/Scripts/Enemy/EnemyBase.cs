@@ -26,26 +26,34 @@ public class EnemyBase : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        DoDamage(collision);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        DoDamage(collision);
+    }
+
+    private void DoDamage(Collision2D collision)
+    {
         if (_damageCoroutine == null)
         {
             if (collision.gameObject.TryGetComponent<HealthPlayer>(out var player))
             {
-                _damageCoroutine = StartCoroutine(DoDamage(player));
+                _damageCoroutine = StartCoroutine(DoDamageCoroutine(player));
             }
         }
     }
 
-    private IEnumerator DoDamage(HealthPlayer player)
+    private IEnumerator DoDamageCoroutine(HealthPlayer player)
     {
-        while (true)
-        {
-            OnAttack();
-            player.Damage(damage);
+        OnAttack();
+        player.Damage(damage);
 
-            yield return _waitForDamage;
+        yield return _waitForDamage;
 
-            StopCoroutine(_damageCoroutine);
-        }
+        StopCoroutine(_damageCoroutine);
+        _damageCoroutine = null;
     }
 
     private void OnAttack()

@@ -48,23 +48,15 @@ public class GunBase : Singleton<GunBase>
         {
             _currentCoroutine ??= StartCoroutine(StartShoot());
         }
-        else if(Input.GetMouseButtonUp(0))
-        {
-            if (_currentCoroutine != null)
-            {
-                StopCoroutine(_currentCoroutine);
-                _currentCoroutine = null;
-            }
-        }
     }
 
     private IEnumerator StartShoot()
     {
-        while (true)
-        {
-            Shoot();
-            yield return _waitForSeconds;
-        }
+        Shoot();
+        yield return _waitForSeconds;
+
+        StopCoroutine(_currentCoroutine);
+        _currentCoroutine = null;
     }
 
     public void Shoot()
