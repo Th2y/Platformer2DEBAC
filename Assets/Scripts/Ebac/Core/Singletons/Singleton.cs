@@ -6,7 +6,7 @@ namespace Ebac.Core.Singletons
     {
         public static T Instance;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             if (Instance == null) Instance = GetComponent<T>();
             else Destroy(gameObject);

@@ -2,6 +2,7 @@ using Ebac.Core.Singletons;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GunBase : Singleton<GunBase>
 {
@@ -44,27 +45,19 @@ public class GunBase : Singleton<GunBase>
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButton("Fire1") && !EventSystem.current.IsPointerOverGameObject())
         {
             _currentCoroutine ??= StartCoroutine(StartShoot());
-        }
-        else if(Input.GetMouseButtonUp(0))
-        {
-            if (_currentCoroutine != null)
-            {
-                StopCoroutine(_currentCoroutine);
-                _currentCoroutine = null;
-            }
         }
     }
 
     private IEnumerator StartShoot()
     {
-        while (true)
-        {
-            Shoot();
-            yield return _waitForSeconds;
-        }
+        Shoot();
+        yield return _waitForSeconds;
+
+        StopCoroutine(_currentCoroutine);
+        _currentCoroutine = null;
     }
 
     public void Shoot()
@@ -80,7 +73,9 @@ public class GunBase : Singleton<GunBase>
                     break;
                 }
             }
+
             animator.SetBool(stringAnimations.Attack, true);
+            AudioController.Instance.PlaySFXByName(SFXNames.PlayerAttack);
 
             _actualNumberOfProjectiles++;
 

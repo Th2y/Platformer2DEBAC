@@ -7,6 +7,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private int damage;
     [SerializeField] private float timeToDamage;
     [SerializeField] private HealthEnemy health;
+    [SerializeField] private bool isEnemyType1 = true;
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
@@ -25,31 +26,40 @@ public class EnemyBase : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        DoDamage(collision);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        DoDamage(collision);
+    }
+
+    private void DoDamage(Collision2D collision)
+    {
         if (_damageCoroutine == null)
         {
             if (collision.gameObject.TryGetComponent<HealthPlayer>(out var player))
             {
-                _damageCoroutine = StartCoroutine(DoDamage(player));
+                _damageCoroutine = StartCoroutine(DoDamageCoroutine(player));
             }
         }
     }
 
-    private IEnumerator DoDamage(HealthPlayer player)
+    private IEnumerator DoDamageCoroutine(HealthPlayer player)
     {
-        while (true)
-        {
-            PlayAttackAnimation();
-            player.Damage(damage);
+        OnAttack();
+        player.Damage(damage);
 
-            yield return _waitForDamage;
+        yield return _waitForDamage;
 
-            StopCoroutine(_damageCoroutine);
-        }
+        StopCoroutine(_damageCoroutine);
+        _damageCoroutine = null;
     }
 
-    private void PlayAttackAnimation()
+    private void OnAttack()
     {
         animator.SetTrigger(stringAnimations.Attack);
+        AudioController.Instance.PlaySFXByName(isEnemyType1 ? SFXNames.Enemy1Attack : SFXNames.Enemy2Attack);
     }
 
     private void OnKill()
