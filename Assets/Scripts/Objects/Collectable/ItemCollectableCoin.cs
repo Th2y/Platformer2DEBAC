@@ -8,6 +8,8 @@ public class ItemCollectableCoin : ItemCollectableBase
 
         if (particle != null) particle.Play();
 
+        AudioController.Instance.PlaySFXByName(SFXNames.Coin);
+
         Invoke(nameof(DisabeleParticle), timeToDisableParticle);
     }
 }

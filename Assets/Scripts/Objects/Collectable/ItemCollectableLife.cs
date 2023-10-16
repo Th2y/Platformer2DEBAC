@@ -8,6 +8,8 @@ public class ItemCollectableLife : ItemCollectableBase
 
         if (particle != null) particle.Play();
 
+        AudioController.Instance.PlaySFXByName(SFXNames.Life);
+
         Invoke(nameof(DisabeleParticle), timeToDisableParticle);
     }
 }
