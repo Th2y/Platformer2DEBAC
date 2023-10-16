@@ -1,5 +1,9 @@
+using UnityEngine;
+
 public class HealthEnemy : HealthBase
 {
+    [SerializeField] protected int startLife;
+
     private int currentLife;
 
     protected override void Init()

@@ -177,7 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 135190548}
   - component: {fileID: 135190549}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: CinemachineCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1007,6 +1007,11 @@ SpriteShapeRenderer:
   m_LocalAABB:
     m_Center: {x: -62.328278, y: 0.8056743, z: 0}
     m_Extent: {x: 113.543945, y: 1.9142902, z: 0}
+--- !u!4 &444606108 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5477646442824546685, guid: f461484794e871c4d8641700ff65373e, type: 3}
+  m_PrefabInstance: {fileID: 1060006033}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &457309686
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,10 +1210,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1880162821}
     m_Modifications:
-    - target: {fileID: 819506472232830614, guid: 08f29b8a86d62934f83bf5c90b500393, type: 3}
-      propertyPath: value
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1194972924782533140, guid: 08f29b8a86d62934f83bf5c90b500393, type: 3}
       propertyPath: m_Name
       value: Coin (9)
@@ -1299,6 +1300,7 @@ MonoBehaviour:
   players: {fileID: 11400000, guid: bd4e9fe9ebaef4747b6d8782c5c12f3e, type: 2}
   enemies: []
   projectilesParent: {fileID: 500861202}
+  particleParent: {fileID: 783081979}
   virtualCamera: {fileID: 1106764582}
   startPoint: {fileID: 295163676}
 --- !u!1 &525858384
@@ -1864,6 +1866,7 @@ Transform:
   - {fileID: 1324993983}
   - {fileID: 1880162821}
   - {fileID: 1710757538}
+  - {fileID: 783081979}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2049,6 +2052,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &783081978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 783081979}
+  m_Layer: 0
+  m_Name: ParticlesParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &783081979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783081978}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 673366247}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &827569564
 GameObject:
   m_ObjectHideFlags: 0
@@ -2790,6 +2823,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1060006033
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1500100156}
+    m_Modifications:
+    - target: {fileID: 5477646442824546680, guid: f461484794e871c4d8641700ff65373e, type: 3}
+      propertyPath: m_Name
+      value: ParticleFirefly
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477646442824546685, guid: f461484794e871c4d8641700ff65373e, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477646442824546685, guid: f461484794e871c4d8641700ff65373e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.3499985
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477646442824546685, guid: f461484794e871c4d8641700ff65373e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477646442824546685, guid: f461484794e871c4d8641700ff65373e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477646442824546685, guid: f461484794e871c4d8641700ff65373e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477646442824546685, guid: f461484794e871c4d8641700ff65373e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477646442824546685, guid: f461484794e871c4d8641700ff65373e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477646442824546685, guid: f461484794e871c4d8641700ff65373e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477646442824546685, guid: f461484794e871c4d8641700ff65373e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477646442824546685, guid: f461484794e871c4d8641700ff65373e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477646442824546685, guid: f461484794e871c4d8641700ff65373e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f461484794e871c4d8641700ff65373e, type: 3}
 --- !u!1 &1061300612
 GameObject:
   m_ObjectHideFlags: 0
@@ -3015,7 +3105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106764581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -61.6, y: 0, z: 0}
+  m_LocalPosition: {x: -70.05, y: 1.4874773, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1638445912}
@@ -3420,7 +3510,7 @@ GameObject:
   - component: {fileID: 1216257644}
   - component: {fileID: 1216257643}
   - component: {fileID: 1216257645}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SPR_Floor
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -4306,9 +4396,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500100153}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -61.6, y: 2, z: 0}
+  m_LocalPosition: {x: -70.05, y: 2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 444606108}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

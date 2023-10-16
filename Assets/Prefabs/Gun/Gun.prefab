@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSideReference: {fileID: 0}
+  animator: {fileID: 0}
+  stringAnimations: {fileID: 11400000, guid: a1e614113c80cb1439fced92693ccf23, type: 2}
   projectilePrefab: {fileID: 7026000366463773684, guid: 5cb8027d8e4deb946a931b11212559b2, type: 3}
   positionToShoot: {fileID: 9172502906004199794}
   maxOfProjectiles: 10

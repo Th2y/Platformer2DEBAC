@@ -7,6 +7,8 @@ public class GunBase : Singleton<GunBase>
 {
     public Transform playerSideReference;
 
+    [SerializeField] private Animator animator;
+    [SerializeField] private SOStringAnimations stringAnimations;
     [SerializeField] private ProjectileBase projectilePrefab;
     [SerializeField] private Transform positionToShoot;
     [SerializeField] private int maxOfProjectiles = 5;
@@ -78,6 +80,8 @@ public class GunBase : Singleton<GunBase>
                     break;
                 }
             }
+            animator.SetBool(stringAnimations.Attack, true);
+
             _actualNumberOfProjectiles++;
 
             _projectile.Value = maxOfProjectiles - _actualNumberOfProjectiles;
