@@ -5,5 +5,9 @@ public class ItemCollectableCoin : ItemCollectableBase
         base.OnCollect();
 
         ItemManager.Instance.AddCoins(value);
+
+        if (particle != null) particle.Play();
+
+        Invoke(nameof(DisabeleParticle), timeToDisableParticle);
     }
 }

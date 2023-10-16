@@ -17,6 +17,7 @@ public class GameManager : Singleton<GameManager>
 
     [Header("References")]
     public Transform projectilesParent;
+    public Transform particleParent;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private Transform startPoint;
 
