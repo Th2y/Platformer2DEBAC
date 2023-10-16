@@ -3664,6 +3664,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1013537838}
+  - component: {fileID: 1013537839}
   m_Layer: 0
   m_Name: ROCKS_Back
   m_TagString: Untagged
@@ -3692,6 +3693,20 @@ Transform:
   m_Father: {fileID: 1149129669}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1013537839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013537837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ff4a7a74d5c774e897a9ab8d69042d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 76d6b65208f9f1a4293fe04615b771f7, type: 2}
+  speed: 2
 --- !u!1 &1032885101
 GameObject:
   m_ObjectHideFlags: 0
@@ -4778,6 +4793,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1233842584}
+  - component: {fileID: 1233842585}
   m_Layer: 0
   m_Name: ROCKS_Front
   m_TagString: Untagged
@@ -4806,6 +4822,20 @@ Transform:
   m_Father: {fileID: 1149129669}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1233842585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233842583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ff4a7a74d5c774e897a9ab8d69042d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 76d6b65208f9f1a4293fe04615b771f7, type: 2}
+  speed: -2
 --- !u!1 &1252937134
 GameObject:
   m_ObjectHideFlags: 0
