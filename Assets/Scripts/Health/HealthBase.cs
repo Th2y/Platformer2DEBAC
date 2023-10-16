@@ -8,7 +8,6 @@ public class HealthBase : MonoBehaviour
     [SerializeField] protected Animator animator;
     [SerializeField] private SOStringAnimations stringAnimations;
 
-    [SerializeField] protected int startLife;
     [SerializeField] protected bool destroyOnKill = false;
     [SerializeField] protected float delayToKill = 1f;
 

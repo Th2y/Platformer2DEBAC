@@ -177,7 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 135190548}
   - component: {fileID: 135190549}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: CinemachineCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3448,7 +3448,7 @@ GameObject:
   - component: {fileID: 1216257644}
   - component: {fileID: 1216257643}
   - component: {fileID: 1216257645}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SPR_Floor
   m_TagString: Floor
   m_Icon: {fileID: 0}

@@ -6,6 +6,10 @@ public class Player : MonoBehaviour
     [Header("Speed Setup")]
     [SerializeField] private Rigidbody2D myRB;
 
+    [Header("Jump Setup")]
+    [SerializeField] private Collider2D myCollider;
+    [SerializeField] private float spaceToGround = .1f;
+
     [Header("Animation Player")]
     [SerializeField] private Animator animator;
     [SerializeField] private SOStringAnimations stringAnimations;
@@ -28,6 +32,7 @@ public class Player : MonoBehaviour
     private float speedX;
     private float speedRun;
     private float forceJump;
+    private float distToGround;
     private float _currentSpeedX = 0;
     private bool _isJumping = false;
 
@@ -46,6 +51,8 @@ public class Player : MonoBehaviour
         forceJump = playerValues.forceJump;
         playerSwipDuration = playerValues.playerSwipDuration;
 
+        if(myCollider != null) distToGround = myCollider.bounds.extents.y;
+
         health.OnKill += OnKill;
     }
 
@@ -55,9 +62,9 @@ public class Player : MonoBehaviour
         HandleJump();
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (_isJumping && collision.gameObject.CompareTag("Floor"))
+        if (_isJumping && IsGrounded())
         {
             _isJumping = false;
             animator.SetBool(stringAnimations.Jump, false);
@@ -108,30 +115,32 @@ public class Player : MonoBehaviour
         }
     }
 
+    private bool IsGrounded()
+    {
+        //Debug.DrawRay(transform.position, -Vector2.up, Color.white, distToGround + spaceToGround);
+        return Physics2D.Raycast(transform.position, -Vector2.up, distToGround + spaceToGround, groundLayer);
+    }
+
     private void HandleJump()
     {
-        if (!_isJumping && Input.GetKeyDown(jumpCode))
+        if (!_isJumping)
         {
-            _isJumping = true;
-            animator.SetBool(stringAnimations.Jump, true);
-            myRB.velocity = Vector2.up * forceJump;
+            if(Input.GetKeyDown(jumpCode) && IsGrounded())
+            {
+                _isJumping = true;
+                animator.SetBool(stringAnimations.Jump, true);
+                myRB.velocity = Vector2.up * forceJump;
+            }
         }
         else if (myRB.velocity.y <= -28)
         {
-            RaycastHit2D hit = Physics2D.Raycast(
-                new Vector3(transform.position.x, transform.position.y - .5f, transform.position.z), 
-                Vector3.down, maxRayLength, groundLayer.value);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, maxRayLength, groundLayer);
 
             if (hit.collider != null && hit.collider.CompareTag("Floor"))
             {
                 animator.SetBool(stringAnimations.Fall, true);
                 animator.SetBool(stringAnimations.Jump, false);
             }
-        }
-
-        if (myRB.velocity.y <= -28)
-        {
-            animator.SetBool(stringAnimations.Fall, true);
         }
         else if(myRB.velocity.y < Vector2.up.y * forceJump)
         {
