@@ -8,6 +8,7 @@ public enum SFXNames
     UIButtons,
     Coin,
     Life,
+    Fall,
     Jump,
     Step,
     PlayerAttack,
@@ -36,6 +37,7 @@ public class AudioController : Singleton<AudioController>
     [SerializeField] private AudioSource uiButtonsSFX;
     [SerializeField] private AudioSource coinSFX;
     [SerializeField] private AudioSource lifeSFX;
+    [SerializeField] private AudioSource fallSFX;
     [SerializeField] private AudioSource jumpSFX;
     [SerializeField] private AudioSource stepSFX;
     [SerializeField] private AudioSource playerAttackSFX;
@@ -55,6 +57,7 @@ public class AudioController : Singleton<AudioController>
         { SFXNames.UIButtons, uiButtonsSFX},
         { SFXNames.Coin, coinSFX },
         { SFXNames.Life, lifeSFX },
+        { SFXNames.Fall, fallSFX },
         { SFXNames.Jump, jumpSFX },
         { SFXNames.Step, stepSFX },
         { SFXNames.PlayerAttack, playerAttackSFX },

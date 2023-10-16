@@ -80,7 +80,9 @@ public class GunBase : Singleton<GunBase>
                     break;
                 }
             }
+
             animator.SetBool(stringAnimations.Attack, true);
+            AudioController.Instance.PlaySFXByName(SFXNames.PlayerAttack);
 
             _actualNumberOfProjectiles++;
 

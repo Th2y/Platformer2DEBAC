@@ -7,6 +7,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private int damage;
     [SerializeField] private float timeToDamage;
     [SerializeField] private HealthEnemy health;
+    [SerializeField] private bool isEnemyType1 = true;
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
@@ -38,7 +39,7 @@ public class EnemyBase : MonoBehaviour
     {
         while (true)
         {
-            PlayAttackAnimation();
+            OnAttack();
             player.Damage(damage);
 
             yield return _waitForDamage;
@@ -47,9 +48,10 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
-    private void PlayAttackAnimation()
+    private void OnAttack()
     {
         animator.SetTrigger(stringAnimations.Attack);
+        AudioController.Instance.PlaySFXByName(isEnemyType1 ? SFXNames.Enemy1Attack : SFXNames.Enemy2Attack);
     }
 
     private void OnKill()

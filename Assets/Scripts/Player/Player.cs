@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
             _isJumping = false;
             animator.SetBool(stringAnimations.Jump, false);
             animator.SetBool(stringAnimations.Fall, false);
+            AudioController.Instance.PlaySFXByName(SFXNames.Fall);
         }
     }
 
@@ -134,6 +135,7 @@ public class Player : MonoBehaviour
                 _isJumping = true;
                 animator.SetBool(stringAnimations.Jump, true);
                 myRB.velocity = Vector2.up * forceJump;
+                AudioController.Instance.PlaySFXByName(SFXNames.Jump);
                 OnJump();
             }
         }
