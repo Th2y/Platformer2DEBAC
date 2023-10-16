@@ -1,6 +1,7 @@
 using Ebac.Core.Singletons;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public enum SFXNames
@@ -26,6 +27,11 @@ public enum MusicNames
 
 public class AudioController : Singleton<AudioController>
 {
+    [Header("Mixer Snapshot")]
+    [SerializeField] private AudioMixerSnapshot menuMixerSnapshot;
+    [SerializeField] private AudioMixerSnapshot gameMixerSnapshot;
+    [SerializeField] private float timeToTransition = .1f;
+
     [Header("Music")]
     [SerializeField] private AudioSource backgroundMusic;
     [SerializeField] private AudioClip menuMusic;
@@ -87,8 +93,16 @@ public class AudioController : Singleton<AudioController>
 
     private void OnChangeScene(Scene current, Scene next)
     {
-        if(next.name == "Menu") backgroundMusic.clip = musicDic[MusicNames.Menu];
-        else backgroundMusic.clip = musicDic[MusicNames.Game];
+        if (next.name == "Menu")
+        {
+            backgroundMusic.clip = musicDic[MusicNames.Menu];
+            menuMixerSnapshot.TransitionTo(timeToTransition);
+        }
+        else 
+        { 
+            backgroundMusic.clip = musicDic[MusicNames.Game];
+            gameMixerSnapshot.TransitionTo(timeToTransition);
+        }
 
         backgroundMusic.Play();
     }

@@ -434,6 +434,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4887785d4525b484eb240ca296ae68a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuMixerSnapshot: {fileID: -2390553925712648816, guid: b61ff98a60e9b0b42ab3008d3bb251ae, type: 2}
+  gameMixerSnapshot: {fileID: -4404262020481958739, guid: b61ff98a60e9b0b42ab3008d3bb251ae, type: 2}
+  timeToTransition: 0.1
   backgroundMusic: {fileID: 6360587956135147862}
   menuMusic: {fileID: 8300000, guid: ab005f59b5030495b9cbe7ccc9f6a329, type: 3}
   gameMusic: {fileID: 8300000, guid: f74396619b7154fa5a38a1959cfa67ae, type: 3}
