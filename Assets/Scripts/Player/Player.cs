@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [Header("Jump Setup")]
     [SerializeField] private Collider2D myCollider;
     [SerializeField] private float spaceToGround = .1f;
+    [SerializeField] private ParticleSystem jumpVFX;
 
     [Header("Animation Player")]
     [SerializeField] private Animator animator;
@@ -130,6 +131,7 @@ public class Player : MonoBehaviour
                 _isJumping = true;
                 animator.SetBool(stringAnimations.Jump, true);
                 myRB.velocity = Vector2.up * forceJump;
+                OnJump();
             }
         }
         else if (myRB.velocity.y <= -28)
@@ -146,6 +148,11 @@ public class Player : MonoBehaviour
         {
             animator.SetBool(stringAnimations.Jump, false);
         }
+    }
+
+    private void OnJump()
+    {
+        if (jumpVFX != null) jumpVFX.Play();
     }
 
     private void OnKill()
