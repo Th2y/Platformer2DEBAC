@@ -2,6 +2,7 @@ using Ebac.Core.Singletons;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GunBase : Singleton<GunBase>
 {
@@ -44,7 +45,7 @@ public class GunBase : Singleton<GunBase>
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButton("Fire1") && !EventSystem.current.IsPointerOverGameObject())
         {
             _currentCoroutine ??= StartCoroutine(StartShoot());
         }
