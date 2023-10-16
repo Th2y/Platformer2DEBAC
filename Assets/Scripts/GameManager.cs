@@ -1,11 +1,14 @@
 using Cinemachine;
-using DG.Tweening;
 using Ebac.Core.Singletons;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    [Header("Panels")]
+    [SerializeField] private GameObject panelLose;
+    [SerializeField] private GameObject panelWin;
+
     [Header("Characters")]
     [SerializeField] private Transform charactersParent;
 
@@ -22,6 +25,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private Transform startPoint;
 
     private Player _currentPlayer;
+    private HealthPlayer _playerHealth;
 
     private void Start()
     {
@@ -42,5 +46,20 @@ public class GameManager : Singleton<GameManager>
 
         _currentPlayer = Instantiate(players.PlayerList[i], charactersParent);
         _currentPlayer.transform.position = startPoint.transform.position;
+
+        _playerHealth = _currentPlayer.GetComponent<HealthPlayer>();
+        _playerHealth.OnKill += ShowPanelLose;
+    }
+
+    private void ShowPanelLose()
+    {
+        panelLose.SetActive(true);
+        AudioController.Instance.PlayMusicByName(MusicNames.Lose);
+    }
+    
+    public void ShowPanelWin()
+    {
+        panelWin.SetActive(true);
+        AudioController.Instance.PlayMusicByName(MusicNames.Win);
     }
 }
