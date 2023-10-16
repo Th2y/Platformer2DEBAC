@@ -66,7 +66,7 @@ MonoBehaviour:
   tagPlayer: Player
   value: 1
   particle: {fileID: 979638903510540059}
-  timeToDisableParticle: 0
+  timeToDisableParticle: 1
 --- !u!95 &5528504096175216515
 Animator:
   serializedVersion: 3
