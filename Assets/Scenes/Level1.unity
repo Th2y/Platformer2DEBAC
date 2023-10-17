@@ -718,6 +718,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 720694686}
+    - target: {fileID: 1767384275502619066, guid: 6e1c5c0489f3d1c4b94920bfce6a8e82, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1767384275502619068, guid: 6e1c5c0489f3d1c4b94920bfce6a8e82, type: 3}
       propertyPath: m_Name
       value: MenuButton
@@ -3705,7 +3709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ff4a7a74d5c774e897a9ab8d69042d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 11400000, guid: 76d6b65208f9f1a4293fe04615b771f7, type: 2}
   speed: 2
 --- !u!1 &1032885101
 GameObject:
@@ -4170,6 +4173,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 720694686}
+    - target: {fileID: 1767384275502619066, guid: 6e1c5c0489f3d1c4b94920bfce6a8e82, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1767384275502619068, guid: 6e1c5c0489f3d1c4b94920bfce6a8e82, type: 3}
       propertyPath: m_Name
       value: MenuButton
@@ -4834,7 +4841,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ff4a7a74d5c774e897a9ab8d69042d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 11400000, guid: 76d6b65208f9f1a4293fe04615b771f7, type: 2}
   speed: -2
 --- !u!1 &1252937134
 GameObject:
@@ -7930,6 +7936,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 720694686}
+    - target: {fileID: 1767384275502619066, guid: 6e1c5c0489f3d1c4b94920bfce6a8e82, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1767384275502619068, guid: 6e1c5c0489f3d1c4b94920bfce6a8e82, type: 3}
       propertyPath: m_Name
       value: MenuButton
