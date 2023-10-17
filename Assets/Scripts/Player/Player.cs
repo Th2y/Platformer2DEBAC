@@ -72,29 +72,9 @@ public class Player : MonoBehaviour
         bool isRunning = Input.GetKey(runCode);
         _currentSpeedX = isRunning ? speedRun : speedX;
 
-        if (Input.GetKey(rigthCode))
-        {
-            animator.SetBool(stringAnimations.Walk, true);
-            animator.SetBool(stringAnimations.Run, isRunning);
+        float isMoving = Input.GetAxis("Horizontal");
 
-            if(myRB.transform.localScale.x != 1)
-            {
-                myRB.transform.DOScaleX(1, playerSwipDuration);
-            }
-            myRB.velocity = new Vector2(_currentSpeedX, myRB.velocity.y);
-        }
-        else if (Input.GetKey(leftCode))
-        {
-            animator.SetBool(stringAnimations.Walk, true);
-            animator.SetBool(stringAnimations.Run, isRunning);
-
-            if (myRB.transform.localScale.x != -1)
-            {
-                myRB.transform.DOScaleX(-1, playerSwipDuration);
-            }
-            myRB.velocity = new Vector2(-_currentSpeedX, myRB.velocity.y);
-        }
-        else
+        if (isMoving == 0)
         {
             animator.SetBool(stringAnimations.Walk, false);
             animator.SetBool(stringAnimations.Run, false);
@@ -107,6 +87,28 @@ public class Player : MonoBehaviour
             {
                 myRB.velocity += friction;
             }
+        }
+        else if (isMoving > 0)
+        {
+            animator.SetBool(stringAnimations.Walk, true);
+            animator.SetBool(stringAnimations.Run, isRunning);
+
+            if (myRB.transform.localScale.x != 1)
+            {
+                myRB.transform.DOScaleX(1, playerSwipDuration);
+            }
+            myRB.velocity = new Vector2(_currentSpeedX, myRB.velocity.y);
+        }
+        else
+        {
+            animator.SetBool(stringAnimations.Walk, true);
+            animator.SetBool(stringAnimations.Run, isRunning);
+
+            if (myRB.transform.localScale.x != -1)
+            {
+                myRB.transform.DOScaleX(-1, playerSwipDuration);
+            }
+            myRB.velocity = new Vector2(-_currentSpeedX, myRB.velocity.y);
         }
     }
 
