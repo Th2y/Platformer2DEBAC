@@ -21,10 +21,13 @@ ScriptedImporter:
     convertToNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
     isReadable: 0
     streamingMipmaps: 1
     streamingMipmapsPriority: 0
     vTOnly: 0
+    ignoreMipmapLimit: 0
     nPOTScale: 1
     sRGBTexture: 1
     spriteMode: 2
@@ -46,6 +49,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
+    cookieMode: 0
     filterMode: 1
     aniso: 1
     mipBias: 0
@@ -79,7 +83,6 @@ ScriptedImporter:
       width: 0
       height: 0
     spriteID: 
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -87,8 +90,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
   - name: Right_Eyebrow
@@ -103,13 +106,16 @@ ScriptedImporter:
       width: 96
       height: 66
     spriteID: dcbb9163f70e21f4790a5a5f5d2a9761
-    internalID: 0
     spriteBone:
     - name: R_Eyebrown
+      guid: 
       position: {x: 73.30652, y: 51.982666, z: 0}
       rotation: {x: 0, y: 0, z: 0.9805041, w: -0.1964988}
       length: 95.89045
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 96, y: 0}
@@ -160,8 +166,8 @@ ScriptedImporter:
     - {x: 0, y: 1}
     - {x: 2, y: 3}
     tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 77, y: 233}
+    uvTransform: {x: 367, y: 682}
+    spritePosition: {x: 290, y: 449}
   - name: Left_Eyebrow
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -174,13 +180,16 @@ ScriptedImporter:
       width: 62
       height: 80
     spriteID: ef393c8b57da90c49bacfbf35f59df92
-    internalID: 0
     spriteBone:
     - name: L_Eyebrown
+      guid: 
       position: {x: 3.80542, y: 70.29187, z: 0}
       rotation: {x: 0, y: 0, z: -0.4517137, w: 0.892163}
       length: 77.20986
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 62, y: 0}
@@ -231,8 +240,8 @@ ScriptedImporter:
     - {x: 2, y: 1}
     - {x: 0, y: 3}
     tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 305, y: 227}
+    uvTransform: {x: 471, y: 682}
+    spritePosition: {x: 166, y: 455}
   - name: Right Eye
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -245,13 +254,16 @@ ScriptedImporter:
       width: 92
       height: 49
     spriteID: 27e42f4f23d3f594e95f120b64b9be3c
-    internalID: 0
     spriteBone:
     - name: R_Eye
+      guid: 
       position: {x: 49.384155, y: -17.977722, z: 0}
       rotation: {x: 0, y: 0, z: 0.6738996, w: 0.73882294}
       length: 74.212715
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 92, y: 0}
@@ -302,8 +314,8 @@ ScriptedImporter:
     - {x: 3, y: 0}
     - {x: 0, y: 1}
     tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: -85, y: 324}
+    uvTransform: {x: 191, y: 736}
+    spritePosition: {x: 276, y: 412}
   - name: Left Eye
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -316,13 +328,16 @@ ScriptedImporter:
       width: 59
       height: 62
     spriteID: e45f80fc34dbee94893ced0fc873773a
-    internalID: 0
     spriteBone:
     - name: L_Eye
+      guid: 
       position: {x: 9.805359, y: -19.226318, z: 0}
       rotation: {x: 0, y: 0, z: 0.64557123, w: 0.7637001}
       length: 75.931854
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 59, y: 62}
@@ -373,8 +388,8 @@ ScriptedImporter:
     - {x: 0, y: 3}
     - {x: 1, y: 2}
     tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 131, y: 314}
+    uvTransform: {x: 291, y: 736}
+    spritePosition: {x: 160, y: 422}
   - name: Right Eye_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -387,13 +402,16 @@ ScriptedImporter:
       width: 47
       height: 81
     spriteID: aea55e8d590de6242ac5ea60d0d9b156
-    internalID: 0
     spriteBone:
     - name: R_Eye
+      guid: 
       position: {x: 17.384155, y: 7.022278, z: 0}
       rotation: {x: 0, y: 0, z: 0.6738996, w: 0.73882294}
       length: 74.212715
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 47, y: 0}
@@ -444,8 +462,8 @@ ScriptedImporter:
     - {x: 1, y: 0}
     - {x: 3, y: 0}
     tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: -304, y: 419}
+    uvTransform: {x: 4, y: 806}
+    spritePosition: {x: 308, y: 387}
   - name: Left_Eye
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -458,13 +476,16 @@ ScriptedImporter:
       width: 42
       height: 82
     spriteID: 881fceca1876ea94aaeb500796e9a8fb
-    internalID: 0
     spriteBone:
     - name: L_Eye
+      guid: 
       position: {x: 9.805359, y: 3.7736816, z: 0}
       rotation: {x: 0, y: 0, z: 0.64557123, w: 0.7637001}
       length: 75.931854
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 42, y: 0}
@@ -515,8 +536,8 @@ ScriptedImporter:
     - {x: 0, y: 1}
     - {x: 3, y: 0}
     tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 381, y: 283}
+    uvTransform: {x: 541, y: 682}
+    spritePosition: {x: 160, y: 399}
   - name: Mouth_Open
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -529,13 +550,16 @@ ScriptedImporter:
       width: 179
       height: 116
     spriteID: 835f4c63e6994c64eb8da8be96eda25a
-    internalID: 0
     spriteBone:
     - name: Mouth
+      guid: 
       position: {x: 80.98462, y: 106.635864, z: 0}
       rotation: {x: 0, y: 0, z: -0.71935785, w: 0.69463974}
       length: 100.19999
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 179, y: 0}
@@ -586,8 +610,8 @@ ScriptedImporter:
     - {x: 2, y: 3}
     - {x: 3, y: 0}
     tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: -163, y: 406}
+    uvTransform: {x: 4, y: 682}
+    spritePosition: {x: 167, y: 276}
   - name: Mouth_closed
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -600,13 +624,16 @@ ScriptedImporter:
       width: 168
       height: 46
     spriteID: c4d25298e1766be4ca05679a9e1c5951
-    internalID: 0
     spriteBone:
     - name: Mouth
+      guid: 
       position: {x: 80.98462, y: 36.635864, z: 0}
       rotation: {x: 0, y: 0, z: -0.71935785, w: 0.69463974}
       length: 100.19999
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 168, y: 0.20703125}
@@ -657,8 +684,8 @@ ScriptedImporter:
     - {x: 1, y: 2}
     - {x: 3, y: 0}
     tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 24, y: 336}
+    uvTransform: {x: 191, y: 682}
+    spritePosition: {x: 167, y: 346}
   - name: Body
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -671,18 +698,25 @@ ScriptedImporter:
       width: 583
       height: 670
     spriteID: e70efac39827b27468fa30e8684b4624
-    internalID: 0
     spriteBone:
     - name: Hips
+      guid: 
       position: {x: 285.51697, y: 8.96482, z: 0}
       rotation: {x: 0, y: 0, z: 0.6858007, w: 0.7277894}
       length: 180.20573
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Spine
+      guid: 
       position: {x: 180.20573, y: -0.0000101311525, z: 0}
       rotation: {x: 0, y: 0, z: 0.006338386, w: 0.9999799}
       length: 478.9272
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 315.235, y: 0.46200562}
@@ -1243,162 +1277,73 @@ ScriptedImporter:
     - {x: 36, y: 47}
     - {x: 35, y: 47}
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 4, y: 4}
-  platformSettings: []
-  mosaicLayers: 1
-  documentPivot: {x: 0, y: 0}
-  documentAlignment: 7
-  importHiddenLayers: 0
-  importedTextureWidth: 1024
-  importedTextureHeight: 1024
-  documentSize: {x: 583, y: 670}
-  paperDollMode: 0
-  keepDupilcateSpriteName: 0
-  spriteCategoryList:
-    categories: []
-  textureActualWidth: 1024
-  textureActualHeight: 1024
-  spritePackingTag: 
-  resliceFromLayer: 0
-  characterMode: 1
-  mosaicPSDLayers: []
-  rigPSDLayers:
-  - name: Enemy 2
-    spriteName: 
-    isGroup: 1
-    parentIndex: -1
-    spriteID: 00000000000000000000000000000000
-    layerID: 20
-    mosaicPosition: {x: 0, y: 0}
-  - name: Eyebrow
-    spriteName: 
-    isGroup: 1
-    parentIndex: 0
-    spriteID: 00000000000000000000000000000000
-    layerID: 19
-    mosaicPosition: {x: 0, y: 0}
-  - name: Right_Eyebrow
-    spriteName: Right_Eyebrow
-    isGroup: 0
-    parentIndex: 1
-    spriteID: dcbb9163f70e21f4790a5a5f5d2a9761
-    layerID: 18
-    mosaicPosition: {x: 367, y: 682}
-  - name: Left_Eyebrow
-    spriteName: Left_Eyebrow
-    isGroup: 0
-    parentIndex: 1
-    spriteID: ef393c8b57da90c49bacfbf35f59df92
-    layerID: 17
-    mosaicPosition: {x: 471, y: 682}
-  - name: Eyes_Closed
-    spriteName: 
-    isGroup: 1
-    parentIndex: 0
-    spriteID: 00000000000000000000000000000000
-    layerID: 15
-    mosaicPosition: {x: 0, y: 0}
-  - name: Right Eye
-    spriteName: Right Eye
-    isGroup: 0
-    parentIndex: 4
-    spriteID: 27e42f4f23d3f594e95f120b64b9be3c
-    layerID: 14
-    mosaicPosition: {x: 191, y: 736}
-  - name: Left Eye
-    spriteName: Left Eye
-    isGroup: 0
-    parentIndex: 4
-    spriteID: e45f80fc34dbee94893ced0fc873773a
-    layerID: 13
-    mosaicPosition: {x: 291, y: 736}
-  - name: Eyes Open
-    spriteName: 
-    isGroup: 1
-    parentIndex: 0
-    spriteID: 00000000000000000000000000000000
-    layerID: 11
-    mosaicPosition: {x: 0, y: 0}
-  - name: Right Eye
-    spriteName: Right Eye_1
-    isGroup: 0
-    parentIndex: 7
-    spriteID: aea55e8d590de6242ac5ea60d0d9b156
-    layerID: 10
-    mosaicPosition: {x: 4, y: 806}
-  - name: Left_Eye
-    spriteName: Left_Eye
-    isGroup: 0
-    parentIndex: 7
-    spriteID: 881fceca1876ea94aaeb500796e9a8fb
-    layerID: 9
-    mosaicPosition: {x: 541, y: 682}
-  - name: Mouth
-    spriteName: 
-    isGroup: 1
-    parentIndex: 0
-    spriteID: 00000000000000000000000000000000
-    layerID: 7
-    mosaicPosition: {x: 0, y: 0}
-  - name: Mouth_Open
-    spriteName: Mouth_Open
-    isGroup: 0
-    parentIndex: 10
-    spriteID: 835f4c63e6994c64eb8da8be96eda25a
-    layerID: 6
-    mosaicPosition: {x: 4, y: 682}
-  - name: Mouth_closed
-    spriteName: Mouth_closed
-    isGroup: 0
-    parentIndex: 10
-    spriteID: c4d25298e1766be4ca05679a9e1c5951
-    layerID: 5
-    mosaicPosition: {x: 191, y: 682}
-  - name: Body
-    spriteName: Body
-    isGroup: 0
-    parentIndex: 0
-    spriteID: e70efac39827b27468fa30e8684b4624
-    layerID: 3
-    mosaicPosition: {x: 4, y: 4}
+    spritePosition: {x: 0, y: 0}
   characterData:
     bones:
     - name: Hips
+      guid: 
       position: {x: 285.51697, y: 8.96482, z: 0}
       rotation: {x: 0, y: 0, z: 0.6858007, w: 0.7277894}
       length: 180.20573
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Spine
+      guid: 
       position: {x: 180.20573, y: -0.000005392583, z: 0}
       rotation: {x: 0, y: 0, z: 0.006338386, w: 0.9999799}
       length: 478.9272
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: R_Eyebrown
+      guid: 
       position: {x: 314.9224, y: -52.44506, z: 0}
       rotation: {x: 0, y: 0, z: 0.84498674, w: 0.53478724}
       length: 95.89047
       parentId: 1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: L_Eyebrown
+      guid: 
       position: {x: 330.16934, y: 141.98013, z: 0}
       rotation: {x: 0, y: 0, z: -0.94273156, w: 0.3335525}
       length: 77.209854
       parentId: 1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: Mouth
+      guid: 
       position: {x: 191.3196, y: 57.22473, z: 0}
       rotation: {x: 0, y: -0, z: -0.9999827, w: 0.0058771786}
       length: 100.20001
       parentId: 1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: R_Eye
+      guid: 
       position: {x: 206.30782, y: -19.558685, z: 0}
       rotation: {x: 0, y: 0, z: -0.022565518, w: 0.99974537}
       length: 74.212715
       parentId: 1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: L_Eye
+      guid: 
       position: {x: 207.78473, y: 136.25906, z: 0}
       rotation: {x: 0, y: 0, z: -0.060234252, w: 0.99818426}
       length: 75.93186
       parentId: 1
+      color:
+        serializedVersion: 2
+        rgba: 0
     parts:
     - spritePosition:
         x: 290
@@ -1483,8 +1428,183 @@ ScriptedImporter:
       order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  platformSettings: []
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  skeletonAssetReferenceID: 
+  padding: 4
+  spriteSizeExpand: 0
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Enemy 2
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: d00122f26c0c6c647ba52c058676e077
+    layerID: 20
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Eyebrow
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 281206883b4957149ae09c365e5fd166
+    layerID: 19
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Right_Eyebrow
+    spriteName: Right_Eyebrow
+    isGroup: 0
+    parentIndex: 1
+    spriteID: dcbb9163f70e21f4790a5a5f5d2a9761
+    layerID: 18
+    mosaicPosition: {x: 367, y: 682}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Left_Eyebrow
+    spriteName: Left_Eyebrow
+    isGroup: 0
+    parentIndex: 1
+    spriteID: ef393c8b57da90c49bacfbf35f59df92
+    layerID: 17
+    mosaicPosition: {x: 471, y: 682}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Eyes_Closed
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: e04e3a110da3b3d458f81d0c18ad10da
+    layerID: 15
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Right Eye
+    spriteName: Right Eye
+    isGroup: 0
+    parentIndex: 4
+    spriteID: 27e42f4f23d3f594e95f120b64b9be3c
+    layerID: 14
+    mosaicPosition: {x: 191, y: 736}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Left Eye
+    spriteName: Left Eye
+    isGroup: 0
+    parentIndex: 4
+    spriteID: e45f80fc34dbee94893ced0fc873773a
+    layerID: 13
+    mosaicPosition: {x: 291, y: 736}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Eyes Open
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 5e80373099c718047b5a883925d4abc0
+    layerID: 11
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Right Eye
+    spriteName: Right Eye_1
+    isGroup: 0
+    parentIndex: 7
+    spriteID: aea55e8d590de6242ac5ea60d0d9b156
+    layerID: 10
+    mosaicPosition: {x: 4, y: 806}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Left_Eye
+    spriteName: Left_Eye
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 881fceca1876ea94aaeb500796e9a8fb
+    layerID: 9
+    mosaicPosition: {x: 541, y: 682}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Mouth
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 4bbfb32d7e5ede44d92549409da84ec1
+    layerID: 7
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Mouth_Open
+    spriteName: Mouth_Open
+    isGroup: 0
+    parentIndex: 10
+    spriteID: 835f4c63e6994c64eb8da8be96eda25a
+    layerID: 6
+    mosaicPosition: {x: 4, y: 682}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Mouth_closed
+    spriteName: Mouth_closed
+    isGroup: 0
+    parentIndex: 10
+    spriteID: c4d25298e1766be4ca05679a9e1c5951
+    layerID: 5
+    mosaicPosition: {x: 191, y: 682}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Body
+    spriteName: Body
+    isGroup: 0
+    parentIndex: 0
+    spriteID: e70efac39827b27468fa30e8684b4624
+    layerID: 3
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  spriteSizeExpandChanged: 0
   generateGOHierarchy: 0
   textureAssetName: SPR_Enemy_2 Texture
   prefabAssetName: SPR_Enemy_2 Prefab
   spriteLibAssetName: SPR_Enemy_2 Sprite Lib
+  skeletonAssetName: 
   secondarySpriteTextures: []
