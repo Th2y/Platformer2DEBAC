@@ -1,6 +1,5 @@
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -19,12 +18,6 @@ public class Player : MonoBehaviour
     [Header("Setup")]
     [SerializeField] private SOPlayerValues playerValues;
     [SerializeField] private HealthPlayer health;
-    [SerializeField] private SOSettings settings;
-
-    private KeyCode leftCode;
-    private KeyCode rigthCode;
-    private KeyCode jumpCode;
-    private KeyCode runCode;
 
     private Vector2 friction;
     private float speedX;
@@ -39,11 +32,6 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        leftCode = settings.leftCode;
-        rigthCode = settings.rigthCode;
-        jumpCode = settings.jumpCode;
-        runCode = settings.runCode;
-
         friction = playerValues.friction;
         speedX = playerValues.speedX;
         speedRun = playerValues.speedRun;

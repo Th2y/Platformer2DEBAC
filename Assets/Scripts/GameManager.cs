@@ -1,5 +1,5 @@
 using Cinemachine;
-using Ebac.Core.Singletons;
+using Thayane.Core.Singletons;
 using System.Collections.Generic;
 using UnityEngine;
 
