@@ -43,9 +43,9 @@ public class GunBase : Singleton<GunBase>
         }
     }
 
-    private void Update()
+    public void Shoot()
     {
-        if (Input.GetButton("Fire1") && !EventSystem.current.IsPointerOverGameObject())
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
             _currentCoroutine ??= StartCoroutine(StartShoot());
         }
@@ -53,14 +53,14 @@ public class GunBase : Singleton<GunBase>
 
     private IEnumerator StartShoot()
     {
-        Shoot();
+        OnShoot();
         yield return _waitForSeconds;
 
         StopCoroutine(_currentCoroutine);
         _currentCoroutine = null;
     }
 
-    public void Shoot()
+    private void OnShoot()
     {
         if(_actualNumberOfProjectiles < maxOfProjectiles)
         {

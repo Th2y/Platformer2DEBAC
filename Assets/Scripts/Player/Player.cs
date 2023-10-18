@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -30,9 +31,11 @@ public class Player : MonoBehaviour
     private float speedRun;
     private float forceJump;
     private float _currentSpeedX = 0;
-    private bool _isJumping = false;
-
     private float playerSwipDuration;
+
+    private float _isMoving = 0f;
+    private bool _isJumping = false;
+    private bool _isRunning = false;
 
     private void Awake()
     {
@@ -50,12 +53,6 @@ public class Player : MonoBehaviour
         health.OnKill += OnKill;
     }
 
-    private void Update()
-    {
-        Movement();
-        HandleJump();
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (_isJumping && IsGrounded())
@@ -67,18 +64,50 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Movement()
+    private void Update()
     {
-        bool isRunning = Input.GetKey(runCode);
-        _currentSpeedX = isRunning ? speedRun : speedX;
+        Movement();
+        HandleJump();
+    }
 
-        float isMoving = Input.GetAxis("Horizontal");
+    public void Move(float isMoving)
+    {
+        _isMoving = isMoving;
 
         if (isMoving == 0)
         {
+            _isRunning = false;
+
             animator.SetBool(stringAnimations.Walk, false);
             animator.SetBool(stringAnimations.Run, false);
+        }
+        else
+        {
+            animator.SetBool(stringAnimations.Walk, true);
 
+            _currentSpeedX = _isRunning ? speedRun : speedX;
+
+            if (isMoving > 0)
+            {
+                if (myRB.transform.localScale.x != 1)
+                {
+                    myRB.transform.DOScaleX(1, playerSwipDuration);
+                }
+            }
+            else
+            {
+                if (myRB.transform.localScale.x != -1)
+                {
+                    myRB.transform.DOScaleX(-1, playerSwipDuration);
+                }
+            }
+        }
+    }
+
+    private void Movement()
+    {
+        if (_isMoving == 0)
+        {
             if (myRB.velocity.x > 0)
             {
                 myRB.velocity -= friction;
@@ -88,36 +117,42 @@ public class Player : MonoBehaviour
                 myRB.velocity += friction;
             }
         }
-        else if (isMoving > 0)
+        else if(_isMoving > 0)
         {
-            animator.SetBool(stringAnimations.Walk, true);
-            animator.SetBool(stringAnimations.Run, isRunning);
-
-            if (myRB.transform.localScale.x != 1)
-            {
-                myRB.transform.DOScaleX(1, playerSwipDuration);
-            }
             myRB.velocity = new Vector2(_currentSpeedX, myRB.velocity.y);
         }
         else
         {
-            animator.SetBool(stringAnimations.Walk, true);
-            animator.SetBool(stringAnimations.Run, isRunning);
-
-            if (myRB.transform.localScale.x != -1)
-            {
-                myRB.transform.DOScaleX(-1, playerSwipDuration);
-            }
             myRB.velocity = new Vector2(-_currentSpeedX, myRB.velocity.y);
         }
     }
 
+    public void Run()
+    {
+        _isRunning = !_isRunning;
+        animator.SetBool(stringAnimations.Run, _isRunning);
+    }
+
     private bool IsGrounded()
     {
-        //Ray ray = new Ray(new Vector3(transform.position.x, transform.position.y + .5f), Vector2.down);
-        //Debug.DrawRay(ray.origin, ray.direction, Color.white, 100);
+        /*Ray ray = new Ray(new Vector3(transform.position.x, transform.position.y + .5f), Vector2.down);
+        Debug.DrawRay(ray.origin, ray.direction, Color.white, 100);
+
+        return Physics2D.Raycast(ray.origin, Vector2.down, 1, groundLayer);*/
         return Physics2D.
-            Raycast(new Vector3(transform.position.x, transform.position.y + .5f), Vector2.down, groundLayer);
+            Raycast(new Vector3(transform.position.x, transform.position.y + .5f), Vector2.down, 1, groundLayer);
+    }
+
+    public void Jump()
+    {
+        if (IsGrounded())
+        {
+            _isJumping = true;
+            animator.SetBool(stringAnimations.Jump, true);
+            myRB.velocity = Vector2.up * forceJump;
+            AudioController.Instance.PlaySFXByName(SFXNames.Jump);
+            OnJump();
+        }
     }
 
     private void HandleJump()
@@ -128,17 +163,6 @@ public class Player : MonoBehaviour
             {
                 animator.SetBool(stringAnimations.Fall, true);
                 animator.SetBool(stringAnimations.Jump, false);
-            }
-        }
-        else
-        {
-            if (Input.GetKeyDown(jumpCode) && IsGrounded())
-            {
-                _isJumping = true;
-                animator.SetBool(stringAnimations.Jump, true);
-                myRB.velocity = Vector2.up * forceJump;
-                AudioController.Instance.PlaySFXByName(SFXNames.Jump);
-                OnJump();
             }
         }
     }
