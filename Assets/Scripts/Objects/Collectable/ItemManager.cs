@@ -1,4 +1,4 @@
-using Ebac.Core.Singletons;
+using Thayane.Core.Singletons;
 using UnityEngine;
 
 public class ItemManager : Singleton<ItemManager>

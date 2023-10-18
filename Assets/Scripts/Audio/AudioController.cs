@@ -1,4 +1,3 @@
-using Ebac.Core.Singletons;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -25,7 +24,7 @@ public enum MusicNames
     Win
 }
 
-public class AudioController : Singleton<AudioController>
+public class AudioController : MonoBehaviour
 {
     [Header("Mixer Snapshot")]
     [SerializeField] private AudioMixerSnapshot menuMixerSnapshot;
@@ -50,6 +49,10 @@ public class AudioController : Singleton<AudioController>
     [SerializeField] private AudioSource enemy1AttackSFX;
     [SerializeField] private AudioSource enemy2AttackSFX;
 
+    private static readonly string _sceneMenu = "Menu";
+
+    public static AudioController Instance;
+
     private Dictionary<MusicNames, AudioClip> musicDic => new Dictionary<MusicNames, AudioClip> 
     {
         { MusicNames.Menu, menuMusic },
@@ -71,13 +74,17 @@ public class AudioController : Singleton<AudioController>
         { SFXNames.Enemy2Attack, enemy2AttackSFX }
     };
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
+        if (Instance == null)
+        {
+            Instance = this;
 
-        DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
 
-        SceneManager.activeSceneChanged += OnChangeScene;
+            SceneManager.activeSceneChanged += OnChangeScene;
+        }
+        else Destroy(gameObject);
     }
 
     public void PlaySFXByName(SFXNames name)
@@ -93,17 +100,20 @@ public class AudioController : Singleton<AudioController>
 
     private void OnChangeScene(Scene current, Scene next)
     {
-        if (next.name == "Menu")
+        if(next.name != "")
         {
-            backgroundMusic.clip = musicDic[MusicNames.Menu];
-            menuMixerSnapshot.TransitionTo(timeToTransition);
-        }
-        else 
-        { 
-            backgroundMusic.clip = musicDic[MusicNames.Game];
-            gameMixerSnapshot.TransitionTo(timeToTransition);
-        }
+            if (next.name == _sceneMenu)
+            {
+                backgroundMusic.clip = musicDic[MusicNames.Menu];
+                menuMixerSnapshot.TransitionTo(timeToTransition);
+            }
+            else
+            {
+                backgroundMusic.clip = musicDic[MusicNames.Game];
+                gameMixerSnapshot.TransitionTo(timeToTransition);
+            }
 
-        backgroundMusic.Play();
+            backgroundMusic.Play();
+        }
     }
 }

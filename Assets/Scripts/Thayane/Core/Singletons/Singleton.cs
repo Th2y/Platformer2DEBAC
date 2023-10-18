@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Ebac.Core.Singletons
+namespace Thayane.Core.Singletons
 {
     public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
